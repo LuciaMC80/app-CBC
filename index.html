@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2A3D4A">
+<meta name="description" content="Clasificación de riesgo y manejo del carcinoma basocelular y del síndrome de Gorlin según EADO 2023, BAD 2021, AEDV 2019 y la guía de Gorlin de 2026.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Manejo CBC">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<title>Manejo del carcinoma basocelular</title>
+<script>
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+</script>
+<style>
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("fonts/jetbrains-mono-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("fonts/jetbrains-mono-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root {
+  --acc: oklch(0.47 0.075 225);
+  --acc-dk: oklch(0.38 0.068 225);
+  --acc-hv: oklch(0.68 0.065 225);
+  --acc-soft: oklch(0.95 0.02 225);
+  --acc-line: oklch(0.85 0.035 225);
+  --bg: oklch(0.966 0.008 220);
+  --card: oklch(0.993 0.003 220);
+  --ink: oklch(0.26 0.014 225);
+  --ink-2: oklch(0.30 0.014 225);
+  --muted: oklch(0.46 0.012 225);
+  --label: oklch(0.52 0.012 225);
+  --line: oklch(0.87 0.014 220);
+  --line-2: oklch(0.89 0.012 220);
+  --field: oklch(0.976 0.007 220);
+  --dark: oklch(0.31 0.04 228);
+  --dark-line: oklch(0.43 0.035 228);
+  --dark-lab: oklch(0.83 0.045 225);
+  --warn: oklch(0.52 0.14 32);
+  --alert: oklch(0.50 0.14 25);
+  --gray: oklch(0.44 0.012 225);
+  --na: oklch(0.60 0.010 225);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { font-family: 'IBM Plex Sans', system-ui, sans-serif; color: var(--ink); }
+a { color: var(--acc); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--acc-dk); }
+.app { max-width: 1240px; margin: 0 auto; padding: 28px 24px 72px; }
+.app * { min-width: 0; }
+
+header { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 26px; }
+.eyebrow { font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); margin-bottom: 10px; }
+h1 { font: 600 30px/1.15 'IBM Plex Sans', sans-serif; letter-spacing: -0.02em; }
+.lede { font: 400 15px/1.5 'IBM Plex Sans', sans-serif; color: var(--muted); margin-top: 8px; max-width: 64ch; }
+.hbtns { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-start; }
+.btn { white-space: nowrap; appearance: none; font: 500 13px/1.35 'IBM Plex Sans', sans-serif; padding: 10px 16px; border-radius: 4px; border: 1px solid oklch(0.82 0.008 220); background: var(--card); color: var(--ink-2); cursor: pointer; }
+.btn.primary { border-color: var(--acc); background: var(--acc); color: #fff; }
+.btn.quiet { color: var(--muted); }
+
+.share { display: none; flex-direction: column; gap: 12px; background: var(--acc-soft); border: 1px solid var(--acc-line); border-radius: 6px; padding: 16px 18px; margin-bottom: 22px; }
+.share.on { display: flex; }
+.share-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.share-row + .share-row { border-top: 1px solid oklch(0.88 0.022 225); padding-top: 12px; }
+.share-lab { font: 500 13px/1.4 'IBM Plex Sans', sans-serif; color: oklch(0.34 0.045 225); min-width: 150px; }
+.share input { flex: 1; min-width: 240px; font: 400 12px/1.4 'JetBrains Mono', monospace; padding: 9px 11px; border-radius: 4px; border: 1px solid oklch(0.82 0.022 225); background: var(--card); color: var(--ink-2); }
+.share-err { font: 400 12px/1.5 'IBM Plex Sans', sans-serif; color: var(--warn); }
+
+.printonly { display: none; margin-bottom: 22px; font: 400 13px/1.7 'JetBrains Mono', monospace; color: var(--ink-2); border: 1px solid oklch(0.85 0.008 220); padding: 14px 16px; border-radius: 4px; white-space: pre-wrap; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px; align-items: start; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.results { position: sticky; top: 20px; }
+
+.card { background: var(--card); border: 1px solid var(--line-2); border-radius: 6px; padding: 20px 22px; }
+.card.form { display: flex; flex-direction: column; gap: 18px; }
+.card-h { display: flex; align-items: baseline; gap: 10px; }
+.card-n { font: 700 11px/1 'JetBrains Mono', monospace; color: var(--acc); }
+h2 { font: 600 16px/1.2 'IBM Plex Sans', sans-serif; }
+.field { display: flex; flex-direction: column; gap: 9px; }
+.lab { font: 600 11px/1.3 'JetBrains Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--label); }
+.hint { font: 400 12px/1.5 'IBM Plex Sans', sans-serif; color: var(--label); }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts.stack { flex-direction: column; }
+.opt { appearance: none; font: 500 14px/1.35 'IBM Plex Sans', sans-serif; padding: 8px 14px; border-radius: 4px; border: 1px solid var(--line); background: var(--card); color: oklch(0.28 0.014 225); cursor: pointer; text-align: left; }
+.opts.stack .opt { padding: 10px 14px; }
+.opt[data-sel="1"] { background: var(--acc) !important; border-color: var(--acc) !important; color: #fff !important; }
+.opt[data-sel="0"]:hover { border-color: var(--acc-hv); background: oklch(0.975 0.007 220); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.chip { appearance: none; font: 500 12px/1 'JetBrains Mono', monospace; padding: 6px 10px; border-radius: 3px; border: 1px solid var(--line-2); background: oklch(0.98 0.004 220); color: var(--muted); cursor: pointer; }
+.chip:hover { border-color: var(--acc-hv); }
+.numrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.num { font: 500 20px/1 'JetBrains Mono', monospace; width: 130px; padding: 11px 13px; border-radius: 4px; border: 1px solid oklch(0.85 0.008 220); background: var(--field); color: oklch(0.22 0.014 225); }
+.num:focus, .opt:focus-visible, .chip:focus-visible, .btn:focus-visible { outline: 2px solid var(--acc-hv); outline-offset: 1px; }
+.numhint { font: 400 13px/1.45 'IBM Plex Sans', sans-serif; color: oklch(0.50 0.012 225); max-width: 34ch; }
+.gcount { font: 500 13px/1.45 'IBM Plex Sans', sans-serif; color: var(--ink-2); background: var(--acc-soft); border: 1px solid var(--acc-line); border-radius: 4px; padding: 9px 12px; }
+[data-dis="1"] { opacity: .32; pointer-events: none; }
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { opacity: .4; }
+
+.filter { display: flex; flex-direction: column; gap: 10px; }
+.filter-btns { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.gbtn { display: flex; flex-direction: column; gap: 2px; padding: 7px 10px !important; }
+.gbtn b { font: 600 12.5px/1.2 'IBM Plex Sans', sans-serif; }
+.gbtn span { font: 400 11px/1.25 'IBM Plex Sans', sans-serif; opacity: .8; }
+.sg-full { font: 400 10px/1.25 'IBM Plex Sans', sans-serif; letter-spacing: 0; text-transform: none; color: oklch(0.77 0.03 225); margin-top: 3px; }
+
+.stage { background: var(--dark); border-radius: 6px; padding: 24px 24px 22px; color: oklch(0.97 0.004 220); }
+.stage-lab { font: 600 11px/1.3 'JetBrains Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--dark-lab); margin-bottom: 16px; }
+.tnm { font: 500 30px/1.1 'JetBrains Mono', monospace; letter-spacing: -0.01em; margin-bottom: 18px; word-break: break-word; }
+.stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 14px; border-top: 1px solid var(--dark-line); padding-top: 16px; }
+.sg-lab { font: 500 10px/1.2 'JetBrains Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: oklch(0.71 0.03 225); margin-bottom: 7px; }
+.sg-val { font: 600 24px/1.1 'IBM Plex Sans', sans-serif; }
+.sg-val.sm { font-size: 18px; line-height: 1.25; }
+.stage-note { font: 400 13px/1.55 'IBM Plex Sans', sans-serif; color: oklch(0.85 0.012 220); margin-top: 16px; }
+.stage-note p + p { margin-top: 6px; }
+
+.verdict { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding: 18px 22px; }
+.verdict .vtxt { flex: 1; min-width: 180px; }
+.vlab { font: 600 11px/1.3 'JetBrains Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--label); margin-bottom: 8px; }
+.vdet { font: 400 13px/1.5 'IBM Plex Sans', sans-serif; color: oklch(0.44 0.012 225); text-wrap: pretty; }
+.vpill { font: 600 18px/1.2 'IBM Plex Sans', sans-serif; padding: 10px 16px; border-radius: 4px; color: #fff; text-align: center; max-width: 100%; }
+.steps { margin: 10px 0 0 16px; display: flex; flex-direction: column; gap: 4px; font: 400 13px/1.45 'IBM Plex Sans', sans-serif; color: var(--ink-2); }
+.vlist { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
+.vlist span { font: 500 11px/1.2 'IBM Plex Sans', sans-serif; padding: 4px 8px; border-radius: 3px; background: oklch(0.95 0.025 35); color: oklch(0.44 0.11 32); border: 1px solid oklch(0.87 0.05 35); }
+
+.sec-t { font: 600 11px/1.3 'JetBrains Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--acc); margin-bottom: 15px; }
+.items { display: flex; flex-direction: column; gap: 14px; }
+.item { display: flex; gap: 11px; align-items: flex-start; }
+.dot { width: 7px; height: 7px; border-radius: 50%; flex: none; margin-top: 7px; }
+.itxt { font: 400 14px/1.55 'IBM Plex Sans', sans-serif; color: var(--ink); text-wrap: pretty; }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.tag { font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .05em; padding: 4px 7px; border-radius: 3px; border: 1px solid var(--line); background: var(--bg); color: oklch(0.44 0.012 225); }
+.foot { font: 400 12px/1.6 'IBM Plex Sans', sans-serif; color: var(--label); border-top: 1px solid var(--line); padding-top: 14px; text-wrap: pretty; }
+.foot p + p { margin-top: 8px; }
+
+@media (max-width: 720px) {
+  .app { padding: 16px 14px 56px; }
+  header { gap: 14px; padding-bottom: 16px; margin-bottom: 18px; }
+  h1 { font-size: 23px; line-height: 1.2; }
+  .hbtns { width: 100%; }
+  .hbtns .btn { flex: 1 1 8em; white-space: normal; }
+  .grid { grid-template-columns: 1fr; gap: 14px; }
+  .results { position: static; gap: 14px; }
+  .card { padding: 16px 15px; }
+  .verdict { padding: 16px 15px; }
+  .tnm { font-size: 22px; }
+  .share input { width: 100%; min-width: 0; }
+}
+@media print {
+  html, body { background: #fff; }
+  .app { padding: 0; }
+  [data-noprint] { display: none !important; }
+  .printonly { display: block !important; }
+  .results { position: static !important; }
+  .grid { display: block !important; }
+  .card, .stage { break-inside: avoid; box-shadow: none !important; margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <div>
+      <div class="eyebrow">Herramienta de apoyo a la decisión clínica</div>
+      <h1>Manejo del carcinoma basocelular</h1>
+      <p class="lede">Clasificación EADO (European Association of Dermato‑Oncology) y riesgo de recidiva bajo o alto (BAD 2021, adaptado de NCCN y RCPath), con recomendaciones de EADO 2023 (con EDF, ESTRO, UEMS y EADV), BAD 2021 (British Association of Dermatologists), AEDV 2019 (Academia Española de Dermatología y Venereología) y la guía de práctica clínica del carcinoma basocelular en el síndrome de Gorlin (J Am Acad Dermatol 2026), con la evidencia posterior más relevante. Cada recomendación indica la guía de la que procede.</p>
+    </div>
+    <div class="hbtns" data-noprint>
+      <button class="btn primary" id="b-share">Compartir caso</button>
+      <button class="btn" id="b-print">Imprimir resumen</button>
+      <button class="btn quiet" id="b-reset">Limpiar</button>
+    </div>
+  </header>
+
+  <div class="share" id="share" data-noprint>
+    <div class="share-row">
+      <span class="share-lab" id="share-msg">Copie y envíe este enlace:</span>
+      <input id="share-url" type="text" readonly>
+      <button class="btn" id="b-close">Cerrar</button>
+    </div>
+    <div class="share-row">
+      <span class="share-lab">Abrir un caso recibido:</span>
+      <input id="load-code" type="text" placeholder="Pegue aquí el enlace o el código recibido">
+      <button class="btn primary" id="b-load">Cargar</button>
+    </div>
+    <div class="share-err" id="load-err"></div>
+  </div>
+
+  <div class="printonly" id="print-sum"></div>
+
+  <div class="grid">
+
+    <!-- ============ ENTRADA DE DATOS ============ -->
+    <div class="col" data-noprint id="form">
+
+      <section class="card form">
+        <div class="card-h"><span class="card-n">01</span><h2>Paciente</h2></div>
+
+        <div class="field">
+          <div class="lab">Edad del paciente (años)</div>
+          <div class="numrow">
+            <input class="num" type="number" step="1" min="0" max="110" placeholder="—" id="i-edad" style="width:110px">
+            <span class="numhint" id="edad-hint">La radioterapia se reserva, en general, para pacientes de 60 años o más (BAD).</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Inmunodepresión</div>
+          <div class="opts">
+            <button class="opt" data-k="inm" data-v="no">No</button>
+            <button class="opt" data-k="inm" data-v="tos">Trasplante de órgano sólido</button>
+            <button class="opt" data-k="inm" data-v="hem">Neoplasia hematológica</button>
+            <button class="opt" data-k="inm" data-v="vih">VIH</button>
+            <button class="opt" data-k="inm" data-v="otra">Otra / iatrogénica</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Síndrome de Gorlin (carcinoma basocelular nevoide)</div>
+          <div class="opts">
+            <button class="opt" data-k="gor" data-v="no">No</button>
+            <button class="opt" data-k="gor" data-v="sosp">Sospecha</button>
+            <button class="opt" data-k="gor" data-v="conf">Diagnosticado</button>
+          </div>
+          <div class="hint">Descartarlo si hay muchos carcinomas basocelulares o el primero aparece antes de los 30 años (EADO).</div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Situación terapéutica</div>
+          <div class="opts stack">
+            <button class="opt" data-k="cand" data-v="si">Candidato a cirugía</button>
+            <button class="opt" data-k="cand" data-v="no">No candidato a cirugía (comorbilidad, fragilidad)</button>
+            <button class="opt" data-k="cand" data-v="rech">Rechaza la cirugía</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Antecedentes en la zona</div>
+          <div class="opts">
+            <button class="opt" data-k="rtp" data-v="toggle">Radioterapia previa en la zona</button>
+          </div>
+          <div class="hint">Un tumor que recidiva tras radioterapia no debe volver a irradiarse.</div>
+        </div>
+      </section>
+
+      <section class="card form">
+        <div class="card-h"><span class="card-n">02</span><h2>Tumor</h2></div>
+
+        <div class="field">
+          <div class="lab">Presentación</div>
+          <div class="opts">
+            <button class="opt" data-k="prim" data-v="pri">Primario</button>
+            <button class="opt" data-k="prim" data-v="rec">Recidivado</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Localización (áreas de BAD 2021)</div>
+          <div class="opts stack">
+            <button class="opt" data-k="area" data-v="H">Área H — zona de la máscara facial (centro de la cara, cejas, periórbita, párpados, nariz, labios, mentón, mandíbula, pre y retroauricular, sien, orejas), genitales, manos, uñas, tobillos y pies</button>
+            <button class="opt" data-k="area" data-v="M">Área M — mejillas, frente, cuero cabelludo, cuello y región pretibial</button>
+            <button class="opt" data-k="area" data-v="L">Área L — tronco y extremidades (salvo las zonas anteriores)</button>
+          </div>
+          <div class="hint">El párpado tiene una clasificación TNM propia y siempre se maneja como alto riesgo (BAD).</div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Diámetro clínico máximo (mm)</div>
+          <div class="numrow">
+            <input class="num" type="number" step="1" min="0" max="500" placeholder="mm" id="i-diam">
+            <span class="numhint">Alto riesgo: &gt; 10 mm en el área M y &gt; 20 mm en el área L; cualquier tamaño en el área H.</span>
+          </div>
+          <div class="chips">
+            <button class="chip" data-num="diam" data-v="5">5</button>
+            <button class="chip" data-num="diam" data-v="10">10</button>
+            <button class="chip" data-num="diam" data-v="15">15</button>
+            <button class="chip" data-num="diam" data-v="20">20</button>
+            <button class="chip" data-num="diam" data-v="30">30</button>
+            <button class="chip" data-num="diam" data-v="50">50</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Bordes clínicos (con buena luz y dermatoscopia)</div>
+          <div class="opts">
+            <button class="opt" data-k="bord" data-v="bien">Bien definidos</button>
+            <button class="opt" data-k="bord" data-v="mal">Mal definidos</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Dificultad de manejo</div>
+          <div class="opts stack">
+            <button class="opt" data-k="dift" data-v="toggle">Dificultad técnica para conservar función o estética por tamaño o localización (párpado, nariz, labio, oreja)</button>
+            <button class="opt" data-k="mult" data-v="toggle">Múltiples carcinomas basocelulares simultáneos</button>
+          </div>
+          <div class="hint">Son criterios de la clasificación EADO de «difícil de tratar».</div>
+        </div>
+      </section>
+
+      <section class="card form">
+        <div class="card-h"><span class="card-n">03</span><h2>Anatomía patológica y exéresis</h2></div>
+
+        <div class="field">
+          <div class="lab">Subtipo histológico</div>
+          <div class="opts stack">
+            <button class="opt" data-k="sub" data-v="nd">Sin biopsia / no conocido</button>
+            <button class="opt" data-k="sub" data-v="sup">Superficial</button>
+            <button class="opt" data-k="sub" data-v="nod">Nodular (u otro de bajo riesgo: pigmentado, infundibuloquístico, fibroepitelial)</button>
+            <button class="opt" data-k="sub" data-v="inf">Infiltrativo (infiltrante, morfeiforme o esclerosante, micronodular)</button>
+            <button class="opt" data-k="sub" data-v="bas">Basoescamoso</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Factores histológicos de alto riesgo</div>
+          <div class="opts stack">
+            <button class="opt" data-k="pni" data-v="toggle">Invasión perineural (nervio con nombre, ≥ 0,1 mm o más allá de la dermis)</button>
+            <button class="opt" data-k="prof" data-v="toggle">Espesor &gt; 6 mm o invasión más allá de la grasa subcutánea</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Invasión ósea</div>
+          <div class="opts">
+            <button class="opt" data-k="hueso" data-v="no">No</button>
+            <button class="opt" data-k="hueso" data-v="menor">Erosión ósea menor</button>
+            <button class="opt" data-k="hueso" data-v="mayor">Invasión ósea mayor</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Márgenes histológicos</div>
+          <div class="opts stack">
+            <button class="opt" data-k="mar" data-v="pend">Sin exéresis aún / sólo biopsia</button>
+            <button class="opt" data-k="mar" data-v="libre">Libres (≥ 1 mm)</button>
+            <button class="opt" data-k="mar" data-v="cerca">Libres pero cercanos (&lt; 1 mm)</button>
+            <button class="opt" data-k="mar" data-v="afecto">Afectos (0 mm)</button>
+          </div>
+        </div>
+
+        <div class="field" data-dis-k="afecto">
+          <div class="lab">Detalle del margen afecto o cercano</div>
+          <div class="opts stack">
+            <button class="opt" data-k="afl" data-v="toggle">Margen lateral</button>
+            <button class="opt" data-k="afp" data-v="toggle">Margen profundo</button>
+            <button class="opt" data-k="colg" data-v="toggle">Cierre con colgajo o injerto</button>
+          </div>
+        </div>
+
+        <div class="field" data-dis-k="exc">
+          <div class="lab">Margen clínico empleado en la exéresis (mm)</div>
+          <div class="numrow">
+            <input class="num" type="number" step="1" min="0" max="50" placeholder="mm" id="i-mcli">
+            <span class="numhint">Opcional. Bajo riesgo: 3–4 mm (EADO) o 4 mm (BAD). Alto riesgo: al menos 5 mm.</span>
+          </div>
+          <div class="chips">
+            <button class="chip" data-num="mcli" data-v="2">2</button>
+            <button class="chip" data-num="mcli" data-v="3">3</button>
+            <button class="chip" data-num="mcli" data-v="4">4</button>
+            <button class="chip" data-num="mcli" data-v="5">5</button>
+            <button class="chip" data-num="mcli" data-v="10">10</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card form">
+        <div class="card-h"><span class="card-n">04</span><h2>Extensión</h2></div>
+
+        <div class="field">
+          <div class="lab">Extensión de la enfermedad</div>
+          <div class="opts stack">
+            <button class="opt" data-k="ext" data-v="loc">Carcinoma basocelular común (localizado)</button>
+            <button class="opt" data-k="ext" data-v="la">Localmente avanzado: grande o destructivo</button>
+            <button class="opt" data-k="ext" data-v="lap">Localmente avanzado gigante o con invasión profunda extracutánea (hueso, órbita, músculo, nervios)</button>
+            <button class="opt" data-k="ext" data-v="met">Metastásico (ganglionar o a distancia)</button>
+          </div>
+          <div class="hint">Avanzado: larga evolución sin tratar o fracasos repetidos, destrucción tisular extensa, y curación difícil o imposible con cirugía o radioterapia estándar (EADO).</div>
+        </div>
+
+        <div class="field" data-dis-k="sist">
+          <div class="lab">Tratamiento con inhibidores de Hedgehog</div>
+          <div class="opts">
+            <button class="opt" data-k="hhif" data-v="toggle">Progresión, intolerancia o contraindicación a los inhibidores de Hedgehog</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card form" data-dis-k="gor">
+        <div class="card-h"><span class="card-n">05</span><h2>Síndrome de Gorlin</h2></div>
+
+        <div class="field">
+          <div class="lab">Gen afectado</div>
+          <div class="opts">
+            <button class="opt" data-k="gen" data-v="nd">No estudiado</button>
+            <button class="opt" data-k="gen" data-v="ptch">PTCH1</button>
+            <button class="opt" data-k="gen" data-v="sufu">SUFU</button>
+            <button class="opt" data-k="gen" data-v="neg">Estudio negativo</button>
+          </div>
+          <div class="hint">Con variante en SUFU los inhibidores de Smoothened actuales probablemente no son eficaces.</div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Criterios mayores</div>
+          <div class="opts stack" id="crit-mayor"></div>
+        </div>
+
+        <div class="field">
+          <div class="lab">Criterios menores</div>
+          <div class="opts stack" id="crit-menor"></div>
+          <div class="gcount" id="gcount"></div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ============ RESULTADOS ============ -->
+    <div class="col results" id="results"></div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------------------------------------------------------------
+  // Criterios diagnósticos del síndrome de Gorlin (EADO 2023)
+  // ---------------------------------------------------------------
+  var MAYOR = [
+    ['g1', 'Más de 5 carcinomas basocelulares en la vida o uno antes de los 30 años'],
+    ['g2', 'Calcificación lamelar de la hoz del cerebro'],
+    ['g3', 'Queratoquiste odontogénico mandibular antes de los 20 años'],
+    ['g4', 'Meduloblastoma (variante desmoplásica)'],
+    ['g5', 'Hoyuelos (pits) palmares o plantares'],
+    ['g6', 'Familiar de primer grado con síndrome de Gorlin']
+  ];
+  var MENOR = [
+    ['h1', 'Quistes linfomesentéricos o pleurales'],
+    ['h2', 'Macrocefalia (perímetro cefálico > percentil 97)'],
+    ['h3', 'Labio leporino o fisura palatina'],
+    ['h4', 'Anomalías vertebrales o costales en la radiografía'],
+    ['h5', 'Polidactilia preaxial o postaxial'],
+    ['h6', 'Fibromas ováricos o cardíacos'],
+    ['h7', 'Anomalías oculares']
+  ];
+
+  // ---------------------------------------------------------------
+  // Estado
+  // ---------------------------------------------------------------
+  var DEFAULTS = {
+    edad: '', inm: 'no', gor: 'no', cand: 'si', rtp: false,
+    prim: 'pri', area: 'L', diam: '', bord: 'bien', dift: false, mult: false,
+    sub: 'nd', pni: false, prof: false, hueso: 'no', mar: 'pend', afl: false, afp: false, colg: false, mcli: '',
+    ext: 'loc', hhif: false, gen: 'nd'
+  };
+  MAYOR.concat(MENOR).forEach(function (c) { DEFAULTS[c[0]] = false; });
+
+  var ALLOWED = {
+    inm: ['no', 'tos', 'hem', 'vih', 'otra'], gor: ['no', 'sosp', 'conf'], cand: ['si', 'no', 'rech'],
+    prim: ['pri', 'rec'], area: ['H', 'M', 'L'], bord: ['bien', 'mal'],
+    sub: ['nd', 'sup', 'nod', 'inf', 'bas'], hueso: ['no', 'menor', 'mayor'], mar: ['pend', 'libre', 'cerca', 'afecto'],
+    ext: ['loc', 'la', 'lap', 'met'], gen: ['nd', 'ptch', 'sufu', 'neg']
+  };
+  var BOOLS = ['rtp', 'dift', 'mult', 'pni', 'prof', 'afl', 'afp', 'colg', 'hhif'].concat(MAYOR.concat(MENOR).map(function (c) { return c[0]; }));
+  var NUMS = ['edad', 'diam', 'mcli'];
+
+  var S = assign({}, DEFAULTS, fromParams(location.hash));
+  var guia = 'todas';
+  var ui = { shareUrl: '', copied: false };
+
+  function assign(t) {
+    for (var i = 1; i < arguments.length; i++) {
+      var o = arguments[i];
+      for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) t[k] = o[k];
+    }
+    return t;
+  }
+
+  function fromParams(h) {
+    var o = {};
+    try {
+      if (!h) return o;
+      var q = new URLSearchParams(String(h).replace(/^[^#]*#/, '').replace(/^#/, '').trim());
+      Object.keys(ALLOWED).forEach(function (k) { if (q.has(k) && ALLOWED[k].indexOf(q.get(k)) >= 0) o[k] = q.get(k); });
+      BOOLS.forEach(function (k) { if (q.has(k)) o[k] = q.get(k) === '1'; });
+      NUMS.forEach(function (k) {
+        if (q.has(k)) { var v = parseFloat(String(q.get(k)).replace(',', '.')); if (isFinite(v) && v >= 0) o[k] = String(v); }
+      });
+    } catch (e) { return {}; }
+    return o;
+  }
+
+  function toParams(s) {
+    var q = new URLSearchParams();
+    Object.keys(DEFAULTS).forEach(function (k) {
+      if (BOOLS.indexOf(k) >= 0) { if (s[k]) q.set(k, '1'); }
+      else if (s[k] !== '') q.set(k, String(s[k]));
+    });
+    return q.toString();
+  }
+
+  function sync() {
+    try { history.replaceState(null, '', location.pathname + location.search + '#' + toParams(S)); } catch (e) {}
+  }
+
+  function num(k) {
+    var v = parseFloat(String(S[k]).replace(',', '.'));
+    return isFinite(v) && v >= 0 ? v : null;
+  }
+  function fmt(v) { return String(v).replace('.', ','); }
+
+  // ---------------------------------------------------------------
+  // Motor de clasificación
+  // ---------------------------------------------------------------
+  function isGor() { return S.gor !== 'no'; }
+  function isAdv() { return S.ext !== 'loc'; }
+  function isMet() { return S.ext === 'met'; }
+  function surg() { return S.cand === 'si'; }
+  function excised() { return S.mar !== 'pend'; }
+  function aggrSub() { return S.sub === 'inf' || S.sub === 'bas'; }
+  function child() { var e = num('edad'); return e !== null && e < 18; }
+
+  // Factores de alto riesgo de recidiva (BAD 2021, tabla 2: NCCN adaptada a UICC‑8 y RCPath)
+  function riskFactors() {
+    var f = [], d = num('diam');
+    if (S.area === 'H') f.push('Área H');
+    if (S.area === 'M' && d !== null && d > 10) f.push('Área M > 10 mm');
+    if (S.area === 'L' && d !== null && d > 20) f.push('Área L > 20 mm');
+    if (S.bord === 'mal') f.push('Bordes mal definidos');
+    if (S.prim === 'rec') f.push('Recidivado');
+    if (S.inm !== 'no') f.push('Inmunodepresión');
+    if (S.rtp) f.push('Radioterapia previa en la zona');
+    if (S.sub === 'inf') f.push('Subtipo infiltrativo');
+    if (S.sub === 'bas') f.push('Basoescamoso');
+    if (S.pni) f.push('Invasión perineural');
+    if (S.prof) f.push('Espesor > 6 mm o más allá de la grasa');
+    if (S.hueso !== 'no') f.push('Invasión ósea');
+    if (S.mar === 'afecto') f.push('Margen afecto');
+    if (S.mar === 'cerca') f.push('Margen < 1 mm');
+    return f;
+  }
+
+  // T de UICC‑8 (igual que AJCC‑8 de cabeza y cuello); el párpado tiene clasificación propia
+  function tCat() {
+    if (S.hueso === 'mayor') return 'T4';
+    var d = num('diam');
+    if (d === null || d === 0) return null;
+    if (S.pni || S.prof || S.hueso === 'menor') return 'T3';
+    return d <= 20 ? 'T1' : d <= 40 ? 'T2' : 'T3';
+  }
+
+  // Estadio EADO (Grob et al. 2021; EADO 2023, fig. 1)
+  function difReasons() {
+    var r = [];
+    if (S.dift) r.push('dificultad técnica por tamaño o localización');
+    if (S.bord === 'mal') r.push('bordes mal definidos');
+    if (S.prim === 'rec') r.push('recidiva');
+    if (S.rtp) r.push('radioterapia previa');
+    if (S.cand === 'no') r.push('comorbilidad que dificulta la cirugía');
+    if (S.cand === 'rech') r.push('rechazo de las consecuencias de la cirugía');
+    return r;
+  }
+  function eadoStage() {
+    if (S.ext === 'met') return 'IV';
+    if (S.ext === 'lap') return 'IIIC';
+    if (S.ext === 'la') return S.area === 'H' ? 'IIIB' : 'IIIA';
+    if (S.mult || isGor()) return 'IIB';
+    if (difReasons().length) return 'IIA';
+    return 'I';
+  }
+  var EADO_TXT = {
+    I: 'Común, fácil de tratar',
+    IIA: 'Común, difícil de tratar por el tumor o el paciente',
+    IIB: 'Difícil de tratar por el número de lesiones',
+    IIIA: 'Grande o destructivo fuera de zonas críticas',
+    IIIB: 'Grande o destructivo en zona crítica o funcional',
+    IIIC: 'Gigante o con invasión extracutánea profunda',
+    IV: 'Metastásico'
+  };
+
+  function gorCount() {
+    var M = MAYOR.filter(function (c) { return S[c[0]]; }).length;
+    var m = MENOR.filter(function (c) { return S[c[0]]; }).length;
+    return { M: M, m: m, ok: (M >= 2 && m >= 1) || (M >= 1 && m >= 3) };
+  }
+
+  // Contraindicaciones de la radioterapia (BAD R16–R17, EADO, Gorlin 2026)
+  function rtContra() {
+    var abs = [], rel = [], e = num('edad');
+    if (isGor()) abs.push(child() ? 'síndrome de Gorlin en la edad pediátrica' : 'síndrome de Gorlin (sólo rescate o paliación en adultos mayores)');
+    if (S.rtp) abs.push('recidiva tras radioterapia');
+    if (e !== null && e < 60) rel.push('edad < 60 años');
+    if (S.hueso !== 'no') rel.push('invasión de hueso o cartílago');
+    return { abs: abs, rel: rel };
+  }
+
+  function compute() {
+    var rf = riskFactors();
+    var d = num('diam');
+    var pending = !rf.length && d === null && !isAdv();
+    var high = rf.length > 0 || isAdv();
+    return { rf: rf, high: high, pending: pending, T: tCat(), st: eadoStage(), dif: difReasons(), g: gorCount(), rc: rtContra() };
+  }
+
+  // ---------------------------------------------------------------
+  // Recomendaciones
+  // ---------------------------------------------------------------
+  var DOT = { std: 'var(--acc)', warn: 'var(--warn)', info: 'oklch(0.78 0.02 220)' };
+  function it(text, tags, dot) { return { text: text, tags: tags || [], dot: DOT[dot || 'std'] }; }
+  var este = function (t) { return t ? ' En este caso: ' + t + '.' : ''; };
+
+  function build(c) {
+    var secs = [];
+    var d = num('diam'), edad = num('edad');
+    var inm = S.inm !== 'no';
+    var adv = isAdv();
+
+    // --- Clasificación y riesgo ---
+    var cl = [];
+    cl.push(it('Clasificación operativa EADO: más del 90 % de los carcinomas basocelulares son «fáciles de tratar» con cirugía estándar u otras técnicas. Son «difíciles de tratar» todos los localmente avanzados y los comunes que plantean dificultades por el tumor (localización en ojos, nariz, labios u orejas; bordes mal definidos; recidivas faciales múltiples; radioterapia previa) o por el paciente (comorbilidad, rechazo de las consecuencias de la cirugía).', ['EADO']));
+    cl.push(it('Estadios EADO: I común y fácil de tratar; IIA común difícil de tratar por el tumor o el paciente; IIB difícil por el número de lesiones; IIIA grande o destructivo fuera de zonas críticas; IIIB en zonas críticas o funcionales (nariz, periorificial); IIIC gigante o con invasión extracutánea profunda; IV metastásico. Su valor pronóstico aún no está demostrado.' + este('estadio ' + c.st + (c.st === 'IIA' && c.dif.length ? ' (' + c.dif.join(', ') + ')' : '')), ['EADO']));
+    cl.push(it('Alto riesgo de recidiva si se cumple al menos un criterio: área H; área M > 10 mm; área L > 20 mm; bordes mal definidos; recidiva; inmunodepresión; radioterapia previa en la zona; subtipo infiltrativo (infiltrante, morfeiforme, micronodular) o basoescamoso; invasión perineural; espesor > 6 mm o invasión más allá de la grasa; pT2 o superior; margen afecto o < 1 mm.' + este(c.rf.length ? c.rf.join(', ').toLowerCase() : (c.pending ? '' : 'ninguno, bajo riesgo')), ['BAD', 'NCCN · cit. BAD']));
+    cl.push(it('Todos los carcinomas basocelulares difíciles de tratar son de alto riesgo. Algunos aparentemente fáciles también lo son: zona H de la cara, histología agresiva (afectación perineural o perivascular), inmunodepresión, y los tratados con técnicas ablativas sin control histológico.', ['EADO']));
+    cl.push(it('Avanzado (BAD): metastásico, o localmente avanzado con uno o más factores de alto riesgo en el que los tratamientos habituales están potencialmente contraindicados por el tumor (gigante > 5 cm, zona H, múltiples tumores, subtipo infiltrativo mal delimitado, recidivas múltiples o radioterapia previa) o por el paciente (estado general, comorbilidad, contraindicación de radioterapia como en el síndrome de Gorlin, rechazo).', ['BAD']));
+    cl.push(it('TNM: para el carcinoma basocelular la clasificación TNM tiene poca utilidad práctica (EADO). UICC‑8 (adoptada por BAD y RCPath): pT1 ≤ 20 mm; pT2 > 20 y ≤ 40 mm; pT3 > 40 mm, o pT1–2 elevado por invasión perineural, invasión profunda (> 6 mm o más allá de la grasa) o erosión ósea menor; pT4 invasión ósea mayor. El párpado tiene clasificación propia.' + este(c.T ? 'p' + c.T + (isMet() ? ' M1' : '') : ''), ['UICC‑8', 'BAD']));
+    if (S.mult || (edad !== null && edad < 30)) {
+      if (!isGor()) cl.push(it('Muchos carcinomas basocelulares primarios o inicio antes de los 30 años: descartar un síndrome de Gorlin. Otras genodermatosis predisponentes: xeroderma pigmentoso, síndrome de Bazex‑Dupré‑Christol, albinismo oculocutáneo y síndrome de Muir‑Torre.', ['EADO'], 'warn'));
+      cl.push(it('Carcinoma basocelular de alta frecuencia (≥ 9 en 3 años) sin síndrome genético: se asocia a sexo masculino, antecedente de carcinoma epidermoide y melanoma, y mayor riesgo de linfoma, leucemia y cáncer de mama y colon.', ['EADO'], 'info'));
+    }
+    secs.push({ t: 'Clasificación y riesgo', items: cl });
+
+    // --- Diagnóstico ---
+    var dx = [];
+    dx.push(it('El superficial y el nodular pueden diagnosticarse clínicamente con ayuda de técnicas no invasivas, sin confirmación histológica; es aceptable en el nodular pequeño de cabeza, cuello o tronco, el superficial de tronco y extremidades, y los múltiples del síndrome de Gorlin.', ['EADO C, 3']));
+    dx.push(it('La dermatoscopia mejora la precisión diagnóstica (sensibilidad 91 %, especificidad 95 %): vasos arborizantes, estructuras blancas brillantes, nidos ovoides azul‑grisáceos, glóbulos, áreas en hoja de arce y en rueda de carro, erosiones múltiples y ulceración. La microscopía confocal y la OCT, si están disponibles, en las lesiones dudosas.', ['EADO A, 1']));
+    dx.push(it('Confirmación histológica obligada en lesiones dudosas, ulceradas o grandes, y en localizaciones de alto riesgo. Biopsia también si el subtipo cambia el tratamiento (infiltrativo frente a superficial) y para confirmar recidivas. En el localmente avanzado, varias biopsias para confirmar el subtipo.', ['EADO B, 3', 'BAD']));
+    dx.push(it('El afeitado o el curetaje suelen bastar para el diagnóstico; si el subtipo es dudoso, biopsia incisional profunda (hasta dermis o grasa) o escisional.', ['BAD']));
+    dx.push(it('Informe anatomopatológico: subtipo, estado de los márgenes lateral y profundo, invasión perineural y linfovascular. Subtipos de mayor riesgo (OMS): basoescamoso, esclerosante o morfeiforme, infiltrante, con diferenciación sarcomatoide y micronodular. Ber‑EP4 y EMA ayudan a distinguirlo del carcinoma epidermoide.', ['EADO']));
+    dx.push(it('Estudio de extensión: exploración de toda la piel (riesgo de otros carcinomas y de melanoma). Sin pruebas de imagen en el bajo riesgo. Si se sospecha afectación de partes blandas o perineural, RM con contraste; si se sospecha afectación ósea, TC; comentar en comité antes de tratar.', ['EADO', 'BAD']));
+    if (S.area === 'H') dx.push(it('Fotografía clínica y dermatoscópica de las lesiones (con consentimiento), útil para planificar, documentar y vigilar la respuesta.', ['BAD'], 'info'));
+    secs.push({ t: 'Diagnóstico y estudio', items: dx });
+
+    // --- Cirugía ---
+    var cir = [];
+    if (isMet()) {
+      cir.push(it('Enfermedad metastásica: la cirugía sólo tiene papel paliativo (sangrado, dolor) o tras respuesta al tratamiento sistémico; decisión en comité.', ['EADO']));
+    } else if (adv) {
+      cir.push(it('Localmente avanzado: la indicación, viabilidad y técnica quirúrgica las decide el comité multidisciplinar, tras exploración completa y TC o RM para valorar hueso, músculo, vasos y afectación perineural.', ['EADO GCP']));
+      cir.push(it('Ofrecer cirugía estándar o radioterapia en el carcinoma basocelular avanzado; considerar la cirugía de Mohs.', ['BAD R12 ↑↑', 'BAD R13 ↑']));
+      cir.push(it('La cirugía puede plantearse tras reducir el tumor con un inhibidor de Hedgehog (neoadyuvancia, descenso del escalón quirúrgico).', ['EADO', 'AEDV C']));
+    } else if (isGor()) {
+      cir.push(it('Síndrome de Gorlin: la cirugía se reserva sobre todo para tumores aislados de alto riesgo; sopesar el beneficio frente al alto riesgo de nuevos tumores. Véase la sección específica.', ['EADO']));
+    } else if (!surg()) {
+      cir.push(it('El paciente ' + (S.cand === 'rech' ? 'rechaza' : 'no es candidato a') + ' la cirugía: véanse los tratamientos no quirúrgicos y la radioterapia. Si el riesgo de no tratar es el motivo, informar de que la progresión significativa es de al menos un 25 % en 2–5 años.', ['BAD R21 ↑↑']));
+    } else {
+      cir.push(it('La exéresis quirúrgica con confirmación histológica es el tratamiento estándar.', ['EADO A, 1', 'BAD R3 ↑↑']));
+      if (!c.high) {
+        cir.push(it('Bajo riesgo: exéresis estándar con margen periférico clínico de 4 mm.', ['BAD R6 ↑↑']));
+        cir.push(it('Bajo riesgo: margen de seguridad de 3–4 mm con histología convencional (2D). Un margen de 3 mm consigue la curación del 95 % en lesiones no morfeiformes ≤ 2 cm; en los pigmentados bien delimitados, 2–3 mm extirpan el 99 %.', ['EADO GCP']));
+        cir.push(it('La cirugía de Mohs no está indicada en el bajo riesgo (evidencia insuficiente).', ['BAD Θ'], 'info'));
+      } else {
+        cir.push(it('Alto riesgo: margen periférico de al menos 5 mm si es anatómicamente posible. Las guías recogen 5–15 mm; un tumor de 2 cm con otros factores de alto riesgo necesitaría unos 13 mm para la misma seguridad.' + (d !== null && d >= 20 ? ' En este caso el tumor mide ' + fmt(d) + ' mm.' : ''), ['EADO GCP', 'BAD R7 ↑↑']));
+        cir.push(it('Cirugía micrográfica (3D) en el alto riesgo: recidivado, subtipos agresivos, localización crítica o bordes mal definidos. En el ensayo holandés, recidiva a 10 años del 4,4 % frente al 12,2 % en primarios y del 3,9 % frente al 13,5 % en recidivados.', ['EADO A, 1', 'AEDV A']));
+        if (S.prim === 'rec') cir.push(it('Recidivado con otro factor de alto riesgo: ofrecer cirugía de Mohs como primera línea, sobre todo en zonas de alto riesgo. Alternativa, tras discutirlo en comité: exéresis con margen ≥ 5 mm y reconstrucción diferida.', ['BAD R10 ↑↑', 'BAD R11 ↑'], 'warn'));
+        else if (S.bord === 'mal' && S.area === 'H') cir.push(it('Alto riesgo en zona de alto riesgo con bordes mal definidos: cirugía de Mohs o exéresis estándar con reconstrucción definitiva diferida hasta confirmar márgenes libres.', ['BAD R5 ↑↑'], 'warn'));
+        else cir.push(it('Primario con un factor de alto riesgo y bordes bien definidos: exéresis estándar con reconstrucción inmediata como primera línea; considerar la cirugía de Mohs.', ['BAD R4 ↑↑', 'BAD R9 ↑']));
+        if (S.area === 'H' && d !== null && d < 6 && c.rf.length === 1) cir.push(it('Tumor < 6 mm del área H sin otros factores: puede valorarse la exéresis estándar si se consigue un margen clínico ≥ 4 mm sin distorsión anatómica ni funcional.', ['BAD']));
+      }
+      cir.push(it('Margen profundo: hasta un plano libre, incluida la grasa; en la cabeza, hasta fascia, pericondrio o periostio si es necesario.', ['BAD R8 ↑↑', 'EADO']));
+      cir.push(it('Si al curetear se alcanza la grasa subcutánea, abandonar el curetaje y extirpar.', ['BAD', 'NCCN · cit. BAD'], 'info'));
+    }
+    if (S.area === 'H' && !adv) cir.push(it('Párpado: aunque sea pT1 de bajo riesgo histológico, se trata como alto riesgo (área H): cirugía de Mohs o exéresis con reconstrucción diferida.', ['BAD'], 'info'));
+    secs.push({ t: 'Cirugía', items: cir });
+
+    // --- Tras la exéresis ---
+    if (excised() && !isMet()) {
+      var tx = [];
+      if (S.mar === 'libre') {
+        tx.push(it('Márgenes histológicos libres: no se requiere ampliar, aunque sean estrechos; no hay datos que apoyen reintervenir tras una exéresis completa con márgenes justos (la pieza se retrae un 17–20 % en longitud).', ['EADO GCP']));
+        if (S.pni) tx.push(it('Invasión perineural con márgenes libres: la evidencia de la radioterapia adyuvante es débil; comentar en comité con cirujano y oncólogo radioterápico.', ['BAD', 'EADO'], 'warn'));
+      } else {
+        if (S.mar === 'cerca') {
+          tx.push(it('Márgenes tangenciales o extremadamente próximos: manejarlos como una exéresis incompleta.', ['EADO', 'AEDV']));
+          if (c.high) tx.push(it('Alto riesgo con margen < 1 mm: comentar en comité las opciones (reexcisión, cirugía de Mohs, radioterapia o vigilancia), teniendo en cuenta la preferencia del paciente.', ['BAD R23 GPP'], 'warn'));
+        }
+        tx.push(it('Reintervenir los carcinomas basocelulares extirpados de forma incompleta, sobre todo los de alto riesgo y los de margen profundo afecto.' + (S.afp ? ' En este caso el margen profundo está afecto.' : ''), ['EADO A, 3'], 'warn'));
+        tx.push(it('Volver a tratar sobre todo si afecta a la zona media facial, el margen profundo está afecto, se cerró con colgajo o injerto, o el subtipo es de alto riesgo. De elección, cirugía convencional o de Mohs (especialmente en esos supuestos); radioterapia si no es candidato a cirugía. En tumores pequeños no agresivos del tronco puede valorarse la revisión clínica.' + (S.colg ? ' En este caso se cerró con colgajo o injerto.' : ''), ['AEDV B'], 'warn'));
+        if (c.high) tx.push(it('Alto riesgo con margen afecto: tras discutirlo en comité, ofrecer reexcisión salvo contraindicación.', ['BAD R22 ↑↑'], 'warn'));
+        tx.push(it('Radioterapia sólo si no es candidato a reintervención (contraindicación, dificultad quirúrgica o rechazo).', ['AEDV C', 'EADO']));
+        tx.push(it('Pronóstico del margen afecto: recidiva del 26–41 % a 2–5 años, máxima en el morfeiforme; en la mitad de las reexcisiones no queda tumor, pero un tumor ya recidivado vuelve a recidivar en más del 50 %, sobre todo si están afectos el lateral y el profundo.', ['EADO', 'AEDV']));
+      }
+      secs.push({ t: 'Actitud tras la exéresis', items: tx });
+    }
+
+    // --- No quirúrgicos ---
+    var nq = [];
+    nq.push(it('Los tratamientos tópicos o destructivos (sin control histológico) pueden considerarse en el superficial y el nodular de bajo riesgo cuando el paciente rechaza la cirugía o no es candidato. Evitarlos si no puede descartarse invasión profunda o hay riesgo de extensión subclínica.', ['EADO GCP', 'AEDV']));
+    if (c.high && !isGor()) nq.push(it('Alto riesgo: no ofrecer imiquimod, 5‑fluorouracilo, criocirugía, curetaje con electrocoagulación ni terapia fotodinámica.' + (adv ? ' En el avanzado, sólo como paliación de síntomas tras discutirlo en comité.' : ''), ['BAD R19 ↓↓', 'BAD R20 ↓↓'], 'warn'));
+    nq.push(it('Bajo riesgo que rechaza o no es candidato a la exéresis: ofrecer imiquimod, 5‑fluorouracilo, criocirugía o terapia fotodinámica.', ['BAD R18 ↑↑']));
+    nq.push(it('Imiquimod 5 %, 5 días por semana durante 6 semanas (superficial), en primarios superficiales y nodulares pequeños. Supervivencia libre de tumor a 5 años en el superficial: 80,5 % con imiquimod, 70 % con 5‑FU y 62,7 % con MAL‑TFD. Frente a la cirugía, 82,5 % frente a 97,7 % a 5 años.', ['EADO B, 1', 'AEDV A']));
+    nq.push(it('5‑fluorouracilo 5 %, dos veces al día 3–6 semanas, en el superficial: inferior a imiquimod y no inferior a la MAL‑TFD; sin síntomas pseudogripales.', ['EADO B, 2', 'AEDV C']));
+    nq.push(it('Terapia fotodinámica con MAL o ALA y luz roja (dos sesiones separadas 1 semana) en el superficial y el nodular de bajo riesgo de ≤ 2 mm de espesor; no en morfeiforme, pigmentado, micronodular ni en la zona H. Mejor resultado estético que la cirugía o la crioterapia.', ['EADO B, 1', 'AEDV A (superficial)', 'AEDV B (nodular)']));
+    nq.push(it('Curetaje con electrocoagulación (hasta tres ciclos) y criocirugía: alternativas en tumores pequeños de bajo riesgo, mejor en tronco y extremidades; recidiva a 5 años del 3–20 %, mayor en la cara y en recidivados.', ['EADO C, 2', 'AEDV C', 'AEDV B (criocirugía)']));
+    nq.push(it('Láser ablativo: evidencia insuficiente como tratamiento aislado; el láser con curetaje puede usarse en tumores grandes o múltiples. Las combinaciones (curetaje o láser previo a TFD, inmunocriocirugía) tienen evidencia baja.', ['EADO X, 4', 'AEDV C', 'BAD Θ'], 'info'));
+    if (S.sub === 'sup' && !c.high) nq.push(it('Superficial de bajo riesgo: imiquimod es la opción tópica con mejor control a largo plazo.', ['EADO', 'BAD']));
+    secs.push({ t: 'Tratamientos no quirúrgicos', items: nq });
+
+    // --- Radioterapia ---
+    var rt = [];
+    var rc = c.rc;
+    if (rc.abs.length) rt.push(it('Radioterapia contraindicada: ' + rc.abs.join('; ') + '. Discutir otras opciones en comité.', ['BAD R16 ↓↓', 'EADO', 'Gorlin R21 · fuerte'], 'warn'));
+    rt.push(it('Radioterapia en los pacientes que no son candidatos a cirugía o la rechazan; recidiva estimada del 3,5 %, comparable a la cirugía estándar y de Mohs (3,8 %).', ['EADO A, 1']));
+    rt.push(it('Ofrecerla (sugerido ≥ 60 años) en bajo y alto riesgo no candidatos a cirugía o que la rechazan y la prefieren, si es nodular, infiltrativo (con margen de planificación suficiente) o extirpado con márgenes afectos.', ['BAD R15 ↑↑']));
+    rt.push(it('No ofrecerla de rutina en zonas de mala vascularización (piernas), en menores de 60 años ni si invade hueso o cartílago; no ofrecerla en recidivas tras radioterapia ni en síndromes genéticos (Gorlin, xeroderma pigmentoso).' + (rc.rel.length ? ' En este caso: ' + rc.rel.join(', ') + '.' : ''), ['BAD R16 ↓↓', 'BAD R17 ↓↓'], rc.rel.length ? 'warn' : 'std'));
+    rt.push(it('Dosis: en lesiones avanzadas, 60–70 Gy en fracciones de 2 Gy; esquemas hipofraccionados equivalentes, 45 Gy en 10 o 54 Gy en 18 fracciones. Fraccionamiento prolongado en zonas mal vascularizadas o cartilaginosas. Alternativas: braquiterapia intersticial o de contacto.', ['EADO', 'NCCN · cit. EADO']));
+    if (S.pni) rt.push(it('Invasión perineural: con margen cercano o afecto, ampliar o, si no es posible, radioterapia; en series, cirugía más radioterapia adyuvante (≈ 55 Gy) consigue un control local del 97 %.', ['BAD', 'AEDV'], 'warn'));
+    if (adv) rt.push(it('Localmente avanzado: radioterapia paliativa (dolor, sangrado, ulceración) con esquemas hipofraccionados cortos, o curativa con IMRT o IGRT; puede combinarse con inhibidores de Hedgehog o inmunoterapia.', ['EADO']));
+    secs.push({ t: 'Radioterapia', items: rt });
+
+    // --- Avanzado ---
+    if (adv) {
+      var av = [];
+      av.push(it('Manejo en comité multidisciplinar de cáncer cutáneo, con acceso a ensayos clínicos.', ['EADO GCP', 'BAD']));
+      if (S.gen === 'sufu') av.push(it('Variante en SUFU: los inhibidores de Smoothened actuales probablemente no son eficaces; no usarlos.', ['Gorlin R9 · fuerte'], 'warn'));
+      av.push(it('Inhibidores de Hedgehog en el localmente avanzado o metastásico no candidato a cirugía ni radioterapia: vismodegib 150 mg/día (aprobado en ambos) o sonidegib 200 mg/día (en Europa sólo en el localmente avanzado).', ['EADO B, 3', 'BAD R14 ↑↑']));
+      av.push(it('Eficacia: vismodegib (ERIVANCE) respuestas del 60 % en el localmente avanzado y del 48,5 % en el metastásico, duración mediana 26,2 y 14,8 meses; STEVIE 68,5 % y 36,9 %. Sonidegib (BOLT, 42 meses) 56 % en el localmente avanzado, duración mediana 26,1 meses.', ['EADO', 'BAD']));
+      av.push(it('Efectos de clase: calambres musculares, disgeusia, alopecia, astenia y pérdida de peso; abandono en el 21–30 %. Las pausas y la reducción de dosis ayudan a la tolerancia; el esquema intermitente (MIKIE) es eficaz.', ['EADO', 'BAD']));
+      if (S.ext !== 'met') av.push(it('Neoadyuvancia: vismodegib durante 4–10 meses permitió reducir el escalón quirúrgico en el 80 % (VISMONEO); sin datos aleatorizados. No hay respuesta con menos de 3 meses de tratamiento.', ['EADO', 'AEDV C']));
+      av.push(it('Segunda línea tras progresión, intolerancia o contraindicación a los inhibidores de Hedgehog: cemiplimab 350 mg i.v. cada 3 semanas (aprobado por la EMA y la FDA). Localmente avanzado: respuestas del 31–32 %, 6–7 % completas, control de la enfermedad 80 %.', ['EADO B, 3'], S.hhif ? 'warn' : 'std'));
+      av.push(it('Cemiplimab en el metastásico tras inhibidores de Hedgehog, análisis final (n = 54): respuestas del 22 % por revisión central, control de la enfermedad del 63 %, supervivencia libre de progresión mediana de 10 meses y global de 50 meses; sin muertes por toxicidad.', ['Post‑guía · Ann Oncol 2024'], S.hhif ? 'warn' : 'std'));
+      av.push(it('Electroquimioterapia (bleomicina) cuando la cirugía o la radioterapia no son posibles: respuestas completas del 81–85 %.', ['EADO']));
+      av.push(it('Quimioterapia (platino): respuestas del 20–30 %, de 2–3 meses; sólo tras fracaso de inhibidores de Hedgehog y anti‑PD‑1.', ['EADO'], 'info'));
+      av.push(it('Reintroducir un inhibidor de Hedgehog tras fracaso de anti‑PD‑1 consiguió un 33 % de respuestas en una serie pequeña.', ['EADO'], 'info'));
+      av.push(it('Cuidados de soporte precoces en el sintomático: escalas de dolor y escalera analgésica de la OMS pautada; lavado diario y metronidazol tópico (0,75–0,8 %, ≥ 14 días) u oral (500 mg/8 h, 10–14 días) para el olor; alginato cálcico, adrenalina o nitrato de plata para el sangrado; radioterapia o electroquimioterapia para el control local.', ['EADO GCP']));
+      if (S.ext !== 'met') av.push(it('Neoadyuvancia con cemiplimab en el localmente avanzado de cabeza y cuello sin inhibidores previos (fase 2, n = 35): respuestas del 60 %, control del 91 % y beneficio quirúrgico del 43 %. Resultados preliminares, no aprobado en esta indicación.', ['Post‑guía · ASCO 2026'], 'info'));
+      secs.push({ t: 'Carcinoma basocelular avanzado', items: av });
+    }
+
+    // --- Inmunodeprimido ---
+    if (inm) {
+      var im = [];
+      im.push(it('BAD y NCCN consideran la inmunodepresión un factor de alto riesgo, aunque los datos son escasos: los estudios no muestran mayor agresividad (más superficiales, más jóvenes y más extracefálicos). Cirugía como primera opción; tratamientos conservadores sólo si no es candidato.', ['AEDV D', 'BAD', 'NCCN · cit. AEDV']));
+      im.push(it('Seguimiento en consultas específicas: alto riesgo también de carcinoma epidermoide.', ['EADO']));
+      if (S.inm === 'tos') im.push(it('La nicotinamida oral no redujo el número de carcinomas basocelulares en trasplantados de órgano sólido.', ['EADO'], 'info'));
+      im.push(it('Imiquimod está indicado en el superficial del adulto inmunocompetente.', ['EADO'], 'info'));
+      secs.push({ t: 'Paciente inmunodeprimido', items: im });
+    }
+
+    // --- Síndrome de Gorlin ---
+    if (isGor()) {
+      var g = [], gc = c.g;
+      g.push(it('Herencia autosómica dominante (prevalencia 1/40 000–60 000), por mutaciones en PTCH1 (20–30 % de novo) y, con menos frecuencia, SUFU, SMO o PTCH2.', ['EADO']));
+      g.push(it('Diagnóstico clínico: dos criterios mayores y uno menor, o uno mayor y tres menores. Mayores: > 5 carcinomas basocelulares o uno antes de los 30 años, calcificación lamelar de la hoz, queratoquiste mandibular antes de los 20 años, meduloblastoma desmoplásico, pits palmoplantares, familiar de primer grado afecto. Menores: quistes linfomesentéricos o pleurales, macrocefalia, fisura labiopalatina, anomalías vertebrales o costales, polidactilia, fibromas ováricos o cardíacos, anomalías oculares.' + este(gc.M + ' mayores y ' + gc.m + ' menores: ' + (gc.ok ? 'cumple criterios' : 'no cumple criterios clínicos')), ['EADO GCP']));
+      g.push(it('Estudio genético en todo paciente con sospecha o diagnóstico clínico (preferible el exoma; los paneles son aceptables). Consejo genético orientado a la planificación familiar; exploración de los familiares y estudio genético si hay sospecha; diagnóstico prenatal a valorar.', ['Gorlin R31 · fuerte', 'Gorlin R32–R34', 'EADO']));
+      g.push(it('Evitar estudios radiológicos sólo para sumar criterios si no cambian el manejo; si se necesita imagen, la que no use radiación ionizante (ecografía, RM).', ['EADO', 'Gorlin R27 · fuerte'], 'warn'));
+      g.push(it('Cribado (EADO, tabla 4) — piel: anual desde los 10 años en PTCH1 y desde los 20 en SUFU (antes si hubo radioterapia), cada 4–6 meses tras el primer carcinoma basocelular. Queratoquistes (PTCH1): RM desde los 2 años u ortopantomografía desde los 8, anual; cada 3 años desde los 30 si no hay hallazgos. Meduloblastoma: RM cerebral sólo si hay síntomas en PTCH1; en SUFU cada 3–4 meses los 3 primeros años y cada 6 meses hasta los 5. Meningioma (SUFU): RM cada 3–5 años desde los 30. Fibroma ovárico: ecografía una vez a los 18 años (PTCH1), cada 3 años desde los 5 (SUFU). Fibroma cardíaco: valoración cardiológica al diagnóstico, idealmente en los 6 primeros meses de vida.' + este(S.gen === 'ptch' ? 'portador de PTCH1' : S.gen === 'sufu' ? 'portador de SUFU' : 'gen no identificado'), ['EADO']));
+      g.push(it('Seguimiento anual por un genetista o un médico familiarizado con el síndrome para las manifestaciones no tumorales y la educación en síntomas de alarma.', ['EADO'], 'info'));
+      g.push(it('Equipo multidisciplinar de por vida, idealmente en un centro con experiencia; informar al médico de atención primaria. Agrupar las consultas y los tratamientos de varias lesiones en una misma visita.', ['Gorlin R29', 'Gorlin R38', 'Gorlin R28', 'BAD']));
+      g.push(it('Objetivo realista: no la curación de todos los tumores, sino controlar la carga tumoral (evitar crecimiento, invasión profunda y morbilidad) y preservar la calidad de vida, con decisiones compartidas.', ['Gorlin R40', 'Gorlin R45']));
+      g.push(it('Tratar de forma rápida y definitiva las lesiones que amenazan la función o la estética o que son grandes o de alto riesgo, aunque el resto de la enfermedad sea leve; priorizar las sintomáticas y las que pueden hacerse inoperables. Las lesiones pequeñas y asintomáticas pueden observarse si así se decide de forma compartida.', ['Gorlin R41', 'Gorlin R43', 'Gorlin R22']));
+      g.push(it('Lesiones de bajo riesgo: 5‑fluorouracilo e imiquimod tópicos como tratamiento primario, de campo y para evitar la «fatiga quirúrgica»; también para limpiar márgenes superficiales positivos. No usar escaróticos.', ['Gorlin R1–R3', 'EADO']));
+      g.push(it('Terapia fotodinámica para lesiones individuales, como terapia de campo y posiblemente preventiva; desbridar antes las lesiones exofíticas y costras (y valorar pretratamiento tópico). Control local a 12 meses del 56 % en una serie de 33 pacientes.', ['Gorlin R12–R13', 'EADO']));
+      g.push(it('Cirugía juiciosa y ahorradora de tejido: buscar márgenes libres, pero en tumores de bajo riesgo puede detenerse antes de limpiar todos los márgenes superficiales si la alternativa es una deformidad o fatiga quirúrgica. Reconstrucción por segunda intención o cierre lineal (no trasladar tumores vecinos al defecto).', ['Gorlin R15–R16', 'Gorlin R17 · fuerte']));
+      g.push(it('Criocirugía y láser no son de primera línea; pueden usarse en tumores pequeños, superficiales y de bajo riesgo.', ['Gorlin R14', 'Gorlin R19–R20'], 'info'));
+      g.push(it('Radioterapia contraindicada de forma absoluta en niños; en adultos, relativamente contraindicada (sólo rescate o paliación de lesiones de alto riesgo en pacientes mayores sin otra opción): induce nuevos carcinomas en el campo irradiado.', ['Gorlin R21 · fuerte', 'BAD R16 ↓↓', 'EADO'], 'warn'));
+      g.push(it('Tratamiento sistémico si hay múltiples tumores de bajo riesgo o lesiones de alto riesgo cuya cirugía causaría deterioro funcional o desfiguración: primera línea, inhibidores de Hedgehog (vismodegib redujo los nuevos tumores operables de 29 a 2 por grupo y año), con dosificación intermitente y descansos; anti‑PD‑1 sólo en enfermedad de alto riesgo tras fracaso. Casi siempre combinado con otras técnicas. EADO considera los múltiples del Gorlin como localmente avanzados.', ['Gorlin R4–R7', 'EADO GCP', 'BAD R14 ↑↑']));
+      if (S.gen === 'sufu') g.push(it('Variante en SUFU: no usar los inhibidores de Smoothened actuales (probablemente ineficaces).', ['Gorlin R9 · fuerte'], 'warn'));
+      g.push(it('La mayoría no mantiene el inhibidor de Hedgehog más de 6 meses por los calambres; si hay oligoprogresión durante la respuesta, puede continuarse y tratar los tumores resistentes con otras técnicas.', ['EADO', 'Gorlin R8']));
+      g.push(it('Fotoprotección estricta y recordada en cada visita; autoexploración y fotografía domiciliaria por el paciente o la familia; en la consulta, dermatoscopia, fotografía seriada y mapeo, vigilando párpados, nariz y labios. Biopsia sólo si el diagnóstico es dudoso.', ['Gorlin R23–R25', 'Gorlin R37']));
+      if (child()) {
+        g.push(it('Niños: la sedación puede permitir tratar muchas lesiones en una sesión (minimizar riesgos y duración). Educación familiar sobre la exposición a ultravioleta y radiación. Pápulas marrones múltiples o «acrocordones» atípicos en un niño obligan a biopsiar: pueden ser el primer signo del síndrome.', ['Gorlin R18', 'Gorlin R44', 'Gorlin R46 · fuerte']));
+        g.push(it('El carcinoma basocelular infantil debe manejarse en un comité con experiencia pediátrica; primera línea, cirugía. Vismodegib limitado en niños por efectos adversos y recaídas al suspenderlo.', ['BAD']));
+      }
+      g.push(it('Derivar pronto a salud mental y a asociaciones de pacientes; tener en cuenta la carga económica de por vida. Informar de los ensayos clínicos y animar al registro de pacientes.', ['Gorlin R30', 'Gorlin R47', 'Gorlin R35–R36']));
+      g.push(it('Patidegib tópico 2 % (inhibidor de Hedgehog): redujo los carcinomas faciales en estudios previos; un segundo ensayo fase 3 está en curso (inicio en 2024, sin resultados publicados). Sin recomendación para la nicotinamida oral ni para los inhibidores de mTOR.', ['Post‑guía · ensayos', 'Gorlin 2026'], 'info'));
+      secs.push({ t: 'Síndrome de Gorlin', items: g });
+    }
+
+    // --- Seguimiento ---
+    var fu = [];
+    fu.push(it('Seguimiento cada 3–12 meses según la categoría de riesgo. Una visita al menos para todos: explicar el diagnóstico, fotoprotección y autoexploración de recidivas y nuevos tumores.', ['EADO GCP']));
+    fu.push(it('No ofrecer seguimiento rutinario tras tratar adecuadamente un carcinoma basocelular aislado; sí una revisión postoperatoria. Al menos anual si hay antecedentes de múltiples tumores con probabilidad de nuevos o de recidiva en 12 meses.', ['BAD R24 ↓↓', 'BAD R25 GPP', 'BAD R26 GPP']));
+    fu.push(it('Alto riesgo, recidivados o múltiples: cada 6–12 meses durante los 3–5 primeros años, después espaciar. Bajo riesgo: al menos una visita y, si es posible, revisión anual.', ['AEDV D']));
+    fu.push(it('Tratamiento inadecuado con alto riesgo de recidiva, múltiples o recidivados previos, Gorlin o inmunodeprimidos: cada 6 meses el primer año y después anual al menos 5 años, posiblemente 10 o más.', ['BAD']));
+    fu.push(it('El riesgo de un segundo carcinoma basocelular es 10 veces el de la población (36 % a 5 años; 60–70 % si ya hubo dos o más); también aumenta el de carcinoma epidermoide y melanoma. La mitad de las recidivas aparecen en 2 años y hasta un 18 % después de 5.', ['EADO', 'AEDV']));
+    if (adv) fu.push(it('Avanzado o difícil de tratar: frecuencia decidida por el comité caso a caso.', ['EADO', 'BAD']));
+    if (isGor()) fu.push(it('Síndrome de Gorlin: exploración de toda la piel (incluidos cuero cabelludo y genitales) cada 4–6 meses tras el primer carcinoma basocelular.', ['EADO']));
+    secs.push({ t: 'Seguimiento', items: fu });
+
+    // --- Prevención ---
+    var pv = [];
+    pv.push(it('Información oral y escrita a todos: naturaleza y pronóstico, opciones de tratamiento, fotoprotección (evitar cabinas de bronceado) y autoexploración, con implicaciones sobre la vitamina D (suplementar si hay déficit).', ['BAD R1 ↑↑', 'EADO']));
+    pv.push(it('Nicotinamida oral 500 mg cada 12 horas: reducción del 20 % de nuevos carcinomas basocelulares en inmunocompetentes con múltiples cánceres cutáneos, sólo mientras se toma. Opción segura en este grupo de alto riesgo; no en la población general.', ['EADO', 'BAD'], 'info'));
+    pv.push(it('Retinoides orales, AINE, antioxidantes y retinoides tópicos: sin evidencia suficiente para recomendarlos en la prevención del carcinoma basocelular.', ['EADO', 'BAD'], 'info'));
+    secs.push({ t: 'Información y prevención', items: pv });
+
+    if (guia !== 'todas') {
+      var keys = GUIAS.filter(function (g) { return g[0] === guia; })[0][3];
+      secs = secs.map(function (sc) {
+        return { t: sc.t, items: sc.items.filter(function (i) { return i.tags.length === 0 || i.tags.some(function (t) { return keys.some(function (k) { return t.indexOf(k) === 0; }); }); }) };
+      }).filter(function (sc) { return sc.items.length > 0; });
+    }
+    return secs;
+  }
+
+  // ---------------------------------------------------------------
+  // Veredictos
+  // ---------------------------------------------------------------
+  // [clave, sigla, nombre completo, prefijos de etiqueta]
+  var GUIAS = [
+    ['eado', 'EADO 2023', 'European Association of Dermato‑Oncology, con EDF, ESTRO, UEMS y EADV', ['EADO']],
+    ['bad', 'BAD 2021', 'British Association of Dermatologists', ['BAD']],
+    ['aedv', 'AEDV 2019', 'Academia Española de Dermatología y Venereología', ['AEDV']],
+    ['gorlin', 'Gorlin 2026', 'Guía del CBC en el síndrome de Gorlin (J Am Acad Dermatol)', ['Gorlin']],
+    ['tnm', 'UICC‑8', 'Clasificación TNM 8.ª ed.', ['UICC', 'AJCC']],
+    ['nccn', 'NCCN (citada)', 'Según la citan BAD, EADO o AEDV', ['NCCN']],
+    ['post', 'Evidencia posterior', 'Publicaciones y ensayos posteriores a las guías', ['Post']]
+  ];
+
+  var VCOL = { ok: 'var(--acc)', no: 'var(--gray)', maybe: 'var(--warn)', na: 'var(--na)', alert: 'var(--alert)' };
+
+  function vRisk(c) {
+    if (isAdv()) return { v: isMet() ? 'Metastásico' : 'Avanzado', d: 'Todo carcinoma basocelular avanzado o difícil de tratar es de alto riesgo y se maneja en comité multidisciplinar.', c: 'alert' };
+    if (c.rf.length) return { v: 'Alto riesgo', d: 'Basta un criterio para considerarlo de alto riesgo (BAD 2021; NCCN adaptada):', c: 'maybe' };
+    if (c.pending) return { v: '—', d: 'Introduzca el diámetro clínico para valorar el riesgo.', c: 'na' };
+    return { v: 'Bajo riesgo', d: 'Sin criterios de alto riesgo: nodular o superficial bien delimitado, primario, área L ≤ 20 mm o área M ≤ 10 mm.', c: 'no' };
+  }
+
+  // Tratamiento de elección
+  function vTto(c) {
+    var rc = c.rc;
+    if (isMet()) return sysV(c, 'Metastásico: ');
+    if (isAdv()) {
+      if (surg()) return { v: 'Comité: cirugía o RT', d: 'Localmente avanzado operable: cirugía (estándar o Mohs) o radioterapia, decididas en comité; valorar neoadyuvancia con inhibidor de Hedgehog si la cirugía sería mutilante.', c: 'ok' };
+      return sysV(c, 'No candidato a cirugía' + (rc.abs.length ? ' ni a radioterapia' : '') + ': ');
+    }
+    if (isGor()) return { v: 'Individualizar', d: 'Gorlin: tópicos o TFD en lesiones de bajo riesgo, cirugía ahorradora (Mohs) en las de alto riesgo, inhibidor de Hedgehog si la carga tumoral es alta' + (S.gen === 'sufu' ? ' (no en SUFU)' : '') + '. Sin radioterapia.', c: 'ok' };
+    if (surg()) {
+      if (!c.high) return { v: 'Exéresis con 4 mm', d: 'Bajo riesgo: exéresis estándar con 4 mm de margen clínico (BAD) o 3–4 mm (EADO), con estudio histológico.', c: c.pending ? 'na' : 'ok' };
+      if (S.prim === 'rec') return { v: 'Cirugía de Mohs', d: 'Recidivado con factor de alto riesgo: Mohs de primera línea (BAD R10; EADO A; AEDV A). Alternativa: exéresis ≥ 5 mm con reconstrucción diferida tras comité.', c: 'ok' };
+      if (S.bord === 'mal' && S.area === 'H') return { v: 'Mohs o reconstr. diferida', d: 'Bordes mal definidos en zona de alto riesgo: cirugía de Mohs o exéresis estándar con reconstrucción definitiva diferida (BAD R5).', c: 'ok' };
+      return { v: 'Mohs o exéresis ≥ 5 mm', d: 'Alto riesgo primario: cirugía micrográfica (EADO A, 1; AEDV A) o exéresis estándar con al menos 5 mm y reconstrucción inmediata si los bordes están bien definidos (BAD R4, R7, R9).', c: 'ok' };
+    }
+    // No candidato o rechaza la cirugía
+    if (!c.high) {
+      if (S.sub === 'sup') return { v: 'Imiquimod / TFD / 5‑FU', d: 'Superficial de bajo riesgo: imiquimod (el más eficaz a 5 años), 5‑FU, TFD o criocirugía (BAD R18; EADO; AEDV A).', c: 'ok' };
+      if (S.sub === 'nod') return { v: 'TFD, crio, C+E o RT', d: 'Nodular de bajo riesgo: TFD (≤ 2 mm de espesor), criocirugía, curetaje y electrocoagulación, imiquimod (menos eficaz) o radioterapia si ≥ 60 años.', c: 'ok' };
+      return { v: 'No quirúrgico', d: 'Bajo riesgo: imiquimod, 5‑FU, TFD, criocirugía o radioterapia; confirmar el subtipo para elegir.', c: 'maybe' };
+    }
+    if (rc.abs.length) return { v: 'Comité', d: 'Alto riesgo sin cirugía y con radioterapia contraindicada (' + rc.abs.join('; ') + '): discutir alternativas en comité.', c: 'alert' };
+    return { v: 'Radioterapia', d: 'Alto riesgo no candidato a cirugía o que la rechaza: radioterapia (EADO A, 1; BAD R15)' + (rc.rel.length ? '; contraindicación relativa: ' + rc.rel.join(', ') + '.' : '.') + ' No usar tópicos ni técnicas destructivas (BAD R19).', c: rc.rel.length ? 'maybe' : 'ok' };
+  }
+
+  function sysV(c, pre) {
+    if (S.gen === 'sufu') return { v: 'Cemiplimab / ensayo', d: pre + 'variante en SUFU, inhibidores de Smoothened probablemente ineficaces: anti‑PD‑1 o ensayo clínico.', c: 'maybe' };
+    if (S.hhif) return { v: 'Cemiplimab', d: pre + 'tras progresión, intolerancia o contraindicación a inhibidores de Hedgehog, cemiplimab 350 mg cada 3 semanas (EADO B, 3); electroquimioterapia o radioterapia paliativa si procede.', c: 'ok' };
+    return { v: 'Inhibidor de Hedgehog', d: pre + 'vismodegib 150 mg/día' + (isMet() ? '' : ' o sonidegib 200 mg/día') + ' (EADO B, 3; BAD R14); cemiplimab en segunda línea.', c: 'ok' };
+  }
+
+  function vMargin(c) {
+    if (isMet()) return { v: 'No aplicable', d: 'Enfermedad metastásica: cirugía sólo paliativa.', c: 'na' };
+    if (isAdv()) return { v: 'Comité', d: 'Localmente avanzado: técnica y márgenes según el comité y la imagen (TC o RM).', c: 'na' };
+    if (isGor()) return { v: 'Ahorrador de tejido', d: 'Gorlin: buscar márgenes libres, pero en lesiones de bajo riesgo puede detenerse antes de limpiar todos los superficiales; cierre por segunda intención o lineal (Gorlin R16–R17).', c: 'ok' };
+    if (!surg()) return { v: 'No aplicable', d: 'Sin cirugía: véase el tratamiento de elección.', c: 'na' };
+    var deep = ' En profundidad, hasta un plano libre con grasa; en la cabeza, fascia, pericondrio o periostio si hace falta.';
+    if (!c.high) return { v: '3–4 mm', d: 'Bajo riesgo: 4 mm (BAD R6) o 3–4 mm (EADO).' + deep, c: c.pending ? 'na' : 'ok' };
+    var d = num('diam');
+    return { v: '≥ 5 mm o Mohs', d: 'Alto riesgo: al menos 5 mm (EADO, BAD R7); rango de 5–15 mm' + (d !== null && d >= 20 ? '; con 2 cm y otros factores, ~13 mm para un 95 % de seguridad, por lo que es preferible la cirugía de Mohs.' : '.') + deep, c: 'ok' };
+  }
+
+  function vActitud(c) {
+    if (!excised() || isMet()) return null;
+    var r, mc = num('mcli');
+    if (S.mar === 'libre') {
+      r = { v: 'No precisa ampliar', d: 'Márgenes histológicos libres: no se requiere reexcisión aunque sean estrechos (EADO GCP).' + (S.pni ? ' Invasión perineural: valorar radioterapia adyuvante en comité (evidencia débil).' : ''), c: S.pni ? 'maybe' : 'ok' };
+    } else {
+      var aggr = c.high || S.afp || S.colg || aggrSub() || S.area !== 'L';
+      if (S.mar === 'cerca' && !aggr) r = { v: 'Reintervenir u observar', d: 'Margen < 1 mm en tumor de bajo riesgo: se maneja como incompleto (EADO, AEDV); en tumores pequeños no agresivos del tronco puede valorarse la revisión clínica.', c: 'maybe' };
+      else if (S.mar === 'cerca') r = { v: 'Comité', d: 'Alto riesgo con margen < 1 mm: reexcisión, Mohs, radioterapia o vigilancia, decidido en comité con el paciente (BAD R23).', c: 'maybe' };
+      else if (!aggr) r = { v: 'Reintervenir u observar', d: 'Margen afecto en tumor pequeño, no agresivo, del tronco o extremidades, sólo lateral y sin colgajo: reintervenir o, como alternativa, revisión clínica (EADO, AEDV B).', c: 'maybe' };
+      else r = { v: 'Reintervenir', d: 'Margen afecto' + (S.afp ? ' profundo' : '') + (S.colg ? ', cierre con colgajo o injerto' : '') + (c.high ? ', alto riesgo' : '') + ': reexcisión, preferentemente con cirugía de Mohs (EADO A, 3; BAD R22; AEDV B). Radioterapia si no es reintervenible.', c: 'alert' };
+    }
+    var steps = [];
+    if (mc !== null) {
+      var rec = c.high ? 5 : 4;
+      if (mc < rec) steps.push('Margen clínico de ' + fmt(mc) + ' mm, inferior al recomendado para ' + (c.high ? 'alto riesgo (≥ 5 mm).' : 'bajo riesgo (4 mm; EADO acepta 3 mm).'));
+    }
+    var im = vImaging(c);
+    if (im.c !== 'no') steps.push('Imagen: ' + im.v + '. ' + im.d);
+    if (S.mar !== 'libre') {
+      var rt = vRT(c);
+      steps.push('Radioterapia (' + rt.v + '): ' + rt.d);
+    }
+    steps.push('Seguimiento: ' + vFU(c).v.toLowerCase() + '.');
+    r.steps = steps;
+    return r;
+  }
+
+  function vRT(c) {
+    var rc = c.rc;
+    if (rc.abs.length) return { v: 'Contraindicada', d: rc.abs.join('; ') + '.', c: 'alert' };
+    if (isMet()) return { v: 'Paliativa', d: 'Para dolor, sangrado o control local; puede combinarse con tratamiento sistémico.', c: 'na' };
+    if (isAdv()) return { v: 'Opción (comité)', d: 'Curativa con IMRT/IGRT (60–70 Gy en 2 Gy, o 45 Gy/10 fx, 54 Gy/18 fx) o paliativa hipofraccionada.' + (rc.rel.length ? ' Relativa: ' + rc.rel.join(', ') + '.' : ''), c: rc.rel.length ? 'maybe' : 'ok' };
+    if (!surg()) {
+      if (S.hueso !== 'no') return { v: 'No de rutina', d: 'Invasión de hueso o cartílago: preferible la cirugía (BAD R17); discutir en comité.', c: 'maybe' };
+      if (rc.rel.length) return { v: 'Relativa', d: 'Indicación en no candidatos a cirugía, pero ' + rc.rel.join(', ') + ' (BAD R17): sopesar efectos tardíos.', c: 'maybe' };
+      return { v: 'Indicada', d: 'No candidato a cirugía o la rechaza: alternativa con recidiva comparable a la cirugía (EADO A, 1; BAD R15)' + (c.high ? '.' : '; en bajo riesgo también son opciones los tópicos, la TFD y la criocirugía.'), c: 'ok' };
+    }
+    if (S.mar === 'afecto' || S.mar === 'cerca') return { v: 'Si no reintervenible', d: 'Márgenes afectos o cercanos: radioterapia sólo si la reexcisión no es posible o se rechaza (AEDV C; BAD R15).' + (rc.rel.length ? ' Relativa: ' + rc.rel.join(', ') + '.' : ''), c: 'maybe' };
+    if (S.pni) return { v: 'Valorar adyuvante', d: 'Invasión perineural: con márgenes libres la evidencia es débil; decisión en comité.', c: 'maybe' };
+    return { v: 'No indicada', d: 'Candidato a cirugía: la radioterapia queda como alternativa si no puede operarse.', c: 'no' };
+  }
+
+  function vImaging(c) {
+    if (isGor() && (S.prof || S.hueso !== 'no' || isAdv())) return { v: 'RM o ecografía', d: 'Gorlin: sólo si hay invasión profunda, con técnicas sin radiación ionizante (Gorlin R26–R27).', c: 'ok' };
+    if (isMet()) return { v: 'TC o PET‑TC', d: 'Estudio de la extensión a distancia según la localización, decidido en comité.', c: 'ok' };
+    if (isAdv() || S.prof || S.hueso !== 'no' || S.pni) {
+      var parts = [];
+      if (S.pni || S.prof || isAdv()) parts.push('RM con contraste si se sospecha afectación de partes blandas o perineural');
+      if (S.hueso !== 'no' || isAdv()) parts.push('TC si se sospecha afectación ósea');
+      return { v: S.hueso !== 'no' ? 'TC ± RM' : 'RM con contraste', d: parts.join('; ') + ' (EADO, BAD).', c: 'ok' };
+    }
+    return { v: 'No necesaria', d: 'Sin sospecha de invasión profunda, las pruebas de imagen no son necesarias (EADO).', c: 'no' };
+  }
+
+  function vSys(c) {
+    if (isMet() || (isAdv() && !surg())) return sysV(c, '');
+    if (isAdv()) return { v: 'Neoadyuvancia a valorar', d: 'Si la cirugía sería mutilante, un inhibidor de Hedgehog durante varios meses puede reducir el tumor (EADO; AEDV C).' + (S.gen === 'sufu' ? ' No en SUFU.' : ''), c: 'maybe' };
+    if (isGor() && (S.mult || S.gor === 'conf')) {
+      if (S.gen === 'sufu') return { v: 'No HHI (SUFU)', d: 'Inhibidores de Smoothened probablemente ineficaces (Gorlin R9); anti‑PD‑1 sólo en enfermedad de alto riesgo tras fracaso.', c: 'maybe' };
+      return { v: 'Valorar HHI', d: 'Múltiples tumores o alto riesgo con cirugía desfigurante: vismodegib con pausas o esquema intermitente, combinado con otras técnicas (Gorlin R4–R7).', c: 'maybe' };
+    }
+    return { v: 'No indicado', d: 'Carcinoma basocelular común: tratamiento local.', c: 'no' };
+  }
+
+  function vFU(c) {
+    if (isAdv()) return { v: 'Según comité', d: 'Avanzado: frecuencia individualizada por el comité multidisciplinar.', c: 'ok' };
+    if (isGor()) return { v: 'Cada 4–6 meses', d: 'Gorlin: piel completa cada 4–6 meses tras el primer carcinoma, más el cribado extracutáneo según el gen (EADO).', c: 'ok' };
+    if (c.high || S.mult || S.prim === 'rec' || S.inm !== 'no' || S.mar === 'afecto') return { v: 'Cada 6–12 meses, 3–5 años', d: 'Alto riesgo, recidivado, múltiples o inmunodeprimido: cada 6–12 meses los 3–5 primeros años (AEDV D); BAD: cada 6 meses el primer año y luego anual ≥ 5 años.', c: 'ok' };
+    return { v: 'Visita única y autoexploración', d: 'Bajo riesgo bien tratado: revisión postoperatoria con educación en fotoprotección y autoexploración (BAD R24–R25); si es posible, revisión anual (AEDV D).', c: 'no' };
+  }
+
+  // ---------------------------------------------------------------
+  // Render
+  // ---------------------------------------------------------------
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); }
+
+  function verdictHTML(lab, v, extra) {
+    return '<div class="card verdict"><div class="vtxt"><div class="vlab">' + esc(lab) + '</div><div class="vdet">' + esc(v.d) + '</div>' + (extra || '') +
+      '</div><div class="vpill" style="background:' + VCOL[v.c] + '">' + esc(v.v) + '</div></div>';
+  }
+
+  function critButtons() {
+    function b(c) { return '<button class="opt" data-k="' + c[0] + '" data-v="toggle">' + esc(c[1]) + '</button>'; }
+    document.getElementById('crit-mayor').innerHTML = MAYOR.map(b).join('');
+    document.getElementById('crit-menor').innerHTML = MENOR.map(b).join('');
+  }
+
+  function render() {
+    var btns = document.querySelectorAll('[data-k]');
+    for (var i = 0; i < btns.length; i++) {
+      var b = btns[i], k = b.getAttribute('data-k'), v = b.getAttribute('data-v');
+      var on = k === 'guia' ? guia === v : v === 'toggle' ? !!S[k] : String(S[k]) === v;
+      b.setAttribute('data-sel', on ? '1' : '0');
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    var dis = {
+      afecto: S.mar !== 'afecto' && S.mar !== 'cerca', exc: !excised(),
+      sist: !isAdv() && !isGor(), gor: !isGor()
+    };
+    var ds = document.querySelectorAll('[data-dis-k]');
+    for (var j = 0; j < ds.length; j++) ds[j].setAttribute('data-dis', dis[ds[j].getAttribute('data-dis-k')] ? '1' : '0');
+
+    var edad = num('edad');
+    var eh = 'La radioterapia se reserva, en general, para pacientes de 60 años o más (BAD).';
+    if (edad !== null) {
+      if (edad < 18) eh = 'Menor de edad: el carcinoma basocelular infantil sugiere una genodermatosis (Gorlin, xeroderma pigmentoso); manejo en comité con experiencia pediátrica.';
+      else if (edad < 30) eh = 'Carcinoma basocelular antes de los 30 años: criterio mayor de síndrome de Gorlin; descartarlo.';
+      else if (edad < 60) eh = 'Menor de 60 años: la radioterapia no se ofrece de rutina por sus efectos tardíos (BAD R17).';
+      else eh = '60 años o más: la radioterapia es una alternativa si no es candidato a cirugía o la rechaza.';
+    }
+    document.getElementById('edad-hint').textContent = eh;
+
+    var c = compute();
+    document.getElementById('gcount').textContent = 'Criterios: ' + c.g.M + ' mayores y ' + c.g.m + ' menores — ' +
+      (c.g.ok ? 'cumple los criterios clínicos (2 mayores y 1 menor, o 1 mayor y 3 menores).' : 'no cumple aún los criterios clínicos (2 mayores y 1 menor, o 1 mayor y 3 menores).');
+
+    var risk = vRisk(c);
+    var head = 'EADO ' + c.st + ' · ' + (c.pending ? 'riesgo —' : (c.high ? 'alto riesgo' : 'bajo riesgo'));
+    var sysLab = 'Clasificación EADO y riesgo de recidiva · carcinoma basocelular';
+
+    var notes = [EADO_TXT[c.st] + '.'];
+    var d = num('diam');
+    if (c.pending) notes.push('Introduzca el diámetro clínico para completar la clasificación de riesgo.');
+    if (c.st === 'IIA' && c.dif.length) notes.push('Difícil de tratar por: ' + c.dif.join(', ') + '.');
+    if (c.st === 'IIB' && c.dif.length) notes.push('Además hay criterios de IIA: ' + c.dif.join(', ') + '.');
+    if (S.area === 'M' && d === 10) notes.push('En el punto de corte: alto riesgo si > 10 mm en el área M.');
+    if (S.area === 'L' && d === 20) notes.push('En el punto de corte: alto riesgo si > 20 mm en el área L.');
+    if (isGor()) notes.push('Síndrome de Gorlin ' + (S.gor === 'conf' ? 'diagnosticado' : 'en sospecha') + (S.gen !== 'nd' ? ' · ' + { ptch: 'PTCH1', sufu: 'SUFU', neg: 'estudio genético negativo' }[S.gen] : '') + '.');
+
+    var html = '';
+    html += '<div class="card filter" data-noprint><div class="lab">Mostrar recomendaciones de</div><div class="filter-btns">' +
+      '<button class="opt gbtn" data-k="guia" data-v="todas" data-sel="' + (guia === 'todas' ? 1 : 0) + '"><b>Todas</b><span>Todas las guías y clasificaciones</span></button>' +
+      GUIAS.map(function (g) { return '<button class="opt gbtn" data-k="guia" data-v="' + g[0] + '" data-sel="' + (guia === g[0] ? 1 : 0) + '"><b>' + esc(g[1]) + '</b><span>' + esc(g[2]) + '</span></button>'; }).join('') +
+      '</div></div>';
+
+    html += '<div class="stage"><div class="stage-lab">' + esc(sysLab) + '</div>' +
+      '<div class="tnm">' + esc(head) + '</div>' +
+      '<div class="stage-grid">' +
+      '<div><div class="sg-lab">Estadio EADO<div class="sg-full">Grob 2021 · EADO 2023</div></div><div class="sg-val">' + esc(c.st) + '</div></div>' +
+      '<div><div class="sg-lab">Riesgo<div class="sg-full">BAD 2021 · NCCN adaptada</div></div><div class="sg-val sm">' + esc(risk.v) + '</div></div>' +
+      '<div><div class="sg-lab">pT<div class="sg-full">UICC‑8</div></div><div class="sg-val">' + esc(c.T ? c.T + (isMet() ? ' M1' : '') : '—') + '</div></div>' +
+      '<div><div class="sg-lab">Área<div class="sg-full">BAD 2021</div></div><div class="sg-val">' + esc(S.area) + '</div></div>' +
+      '</div><div class="stage-note">' + notes.map(function (n) { return '<p>' + esc(n) + '</p>'; }).join('') + '</div></div>';
+
+    var flist = c.rf.length ? '<div class="vlist">' + c.rf.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>' : '';
+    html += verdictHTML('Riesgo de recidiva', risk, flist);
+    html += verdictHTML('Tratamiento de elección', vTto(c));
+    html += verdictHTML('Margen quirúrgico', vMargin(c));
+    var act = vActitud(c);
+    if (act) html += verdictHTML('Actitud tras la exéresis', act, '<ul class="steps">' + act.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul>');
+    html += verdictHTML('Radioterapia', vRT(c));
+    html += verdictHTML('Pruebas de imagen', vImaging(c));
+    html += verdictHTML('Tratamiento sistémico', vSys(c));
+    html += verdictHTML('Seguimiento', vFU(c));
+
+    var secs = build(c);
+    if (!secs.length) html += '<div class="card"><div class="vdet">Esta guía o clasificación no tiene recomendaciones aplicables a los datos introducidos. Pulse «Todas» para verlas todas.</div></div>';
+    secs.forEach(function (sc) {
+      html += '<div class="card"><div class="sec-t">' + esc(sc.t) + '</div><div class="items">';
+      sc.items.forEach(function (i) {
+        html += '<div class="item"><span class="dot" style="background:' + i.dot + '"></span><div><div class="itxt">' + esc(i.text) + '</div>';
+        if (i.tags.length) html += '<div class="tags">' + i.tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div>';
+        html += '</div></div>';
+      });
+      html += '</div></div>';
+    });
+
+    html += '<div class="foot">' +
+      '<p>Herramienta de apoyo a la decisión: no sustituye el juicio clínico ni la valoración del comité multidisciplinar de tumores. La elección del tratamiento debe compartirse con el paciente.</p>' +
+      '<p>Grados: EADO, grado de recomendación (A fuerte, B recomendación, C débil, X no recomendado, GCP buena práctica clínica por consenso) seguido del nivel de evidencia de Oxford (1–5). BAD, fuerza de recomendación GRADE: ↑↑ ofrecer, ↑ considerar, Θ evidencia insuficiente, ↓↓ no ofrecer; GPP, punto de buena práctica. AEDV, fuerza de recomendación (A–D) según los niveles de Oxford. Gorlin 2026, recomendación (R1–R47) fuerte o condicional.</p>' +
+      '<p>Fuentes: Peris K, Fargnoli MC, et al. European consensus-based interdisciplinary guideline for diagnosis and treatment of basal cell carcinoma — update 2023. Eur J Cancer 2023;192:113254. Nasr I, et al. British Association of Dermatologists guidelines for the management of adults with basal cell carcinoma 2021. Br J Dermatol 2021;185:899–920. Vílchez‑Márquez F, et al. Guía de práctica clínica de carcinoma basocelular de la Academia Española de Dermatología y Venereología, 2019. Cahn BA, et al. Clinical practice guidelines for the management of basal cell carcinoma in Gorlin syndrome. J Am Acad Dermatol 2026;94:485–94. Grob JJ, et al. Position statement on classification of basal cell carcinomas, parts 1–2. J Eur Acad Dermatol Venereol 2021;35:1949–56 y 2149–53. UICC TNM Classification of Malignant Tumours, 8.ª ed.</p>' +
+      '<p>Las posiciones de NCCN (National Comprehensive Cancer Network) se recogen tal como las citan BAD 2021, EADO 2023 y AEDV 2019.</p>' +
+      '<p>Evidencia posterior (etiqueta «Post‑guía»): Final analysis of phase II results with cemiplimab in metastatic basal cell carcinoma after hedgehog pathway inhibitors. Ann Oncol 2024;35:221–8. Ensayo fase 2 de cemiplimab neoadyuvante en el carcinoma basocelular de cabeza y cuello (NCT05929664), ASCO 2026. Ensayo fase 3 de patidegib tópico en el síndrome de Gorlin (2023‑507528‑21‑00), en curso.</p>' +
+      '</div>';
+
+    document.getElementById('results').innerHTML = html;
+    document.getElementById('print-sum').textContent = printSummary(c, head);
+
+    var sh = document.getElementById('share');
+    sh.className = 'share' + (ui.shareUrl ? ' on' : '');
+    document.getElementById('share-url').value = ui.shareUrl;
+    document.getElementById('share-msg').textContent = ui.copied ? 'Enlace copiado al portapapeles.' : 'Copie y envíe este enlace:';
+    document.getElementById('b-share').textContent = ui.copied ? 'Enlace copiado' : 'Compartir caso';
+  }
+
+  function printSummary(c, head) {
+    var I = { no: 'no', tos: 'trasplante de órgano sólido', hem: 'neoplasia hematológica', vih: 'VIH', otra: 'otra' };
+    var G = { no: 'no', sosp: 'sospecha', conf: 'diagnosticado' };
+    var CA = { si: 'candidato a cirugía', no: 'no candidato a cirugía', rech: 'rechaza la cirugía' };
+    var SU = { nd: 'no conocido', sup: 'superficial', nod: 'nodular', inf: 'infiltrativo', bas: 'basoescamoso' };
+    var MA = { pend: 'sin exéresis', libre: 'libres (≥ 1 mm)', cerca: 'cercanos (< 1 mm)', afecto: 'afectos' };
+    var EX = { loc: 'común', la: 'localmente avanzado', lap: 'localmente avanzado gigante o con invasión profunda', met: 'metastásico' };
+    var HU = { no: 'no', menor: 'erosión menor', mayor: 'invasión mayor' };
+    var e = num('edad'), d = num('diam'), mc = num('mcli');
+    return 'RESUMEN CLÍNICO · CARCINOMA BASOCELULAR · ' + new Date().toLocaleDateString('es-ES') +
+      '\nEdad: ' + (e === null ? '—' : e + ' años') + ' · Inmunodepresión: ' + I[S.inm] + ' · Gorlin: ' + G[S.gor] +
+      (isGor() ? ' (' + { nd: 'gen no estudiado', ptch: 'PTCH1', sufu: 'SUFU', neg: 'estudio negativo' }[S.gen] + '; ' + c.g.M + ' criterios mayores, ' + c.g.m + ' menores)' : '') +
+      ' · ' + CA[S.cand] + (S.rtp ? ' · radioterapia previa en la zona' : '') +
+      '\nTumor ' + (S.prim === 'rec' ? 'recidivado' : 'primario') + ' · área ' + S.area + ' · ' + (d === null ? '—' : d + ' mm') + ' · bordes ' + (S.bord === 'mal' ? 'mal' : 'bien') + ' definidos' + (S.dift ? ' · dificultad técnica' : '') + (S.mult ? ' · múltiples' : '') +
+      '\nSubtipo: ' + SU[S.sub] + (S.pni ? ' · invasión perineural' : '') + (S.prof ? ' · espesor > 6 mm / más allá de la grasa' : '') + ' · hueso: ' + HU[S.hueso] +
+      '\nMárgenes: ' + MA[S.mar] + ((S.mar === 'afecto' || S.mar === 'cerca') ? [S.afl ? ' lateral' : '', S.afp ? ' profundo' : '', S.colg ? ' · colgajo/injerto' : ''].join('') : '') + (mc !== null && excised() ? ' · margen clínico ' + fmt(mc) + ' mm' : '') +
+      '\nExtensión: ' + EX[S.ext] + (S.hhif ? ' · fracaso o contraindicación de inhibidores de Hedgehog' : '') +
+      '\n' + head + (c.T ? '  |  p' + c.T + ' (UICC‑8)' : '') +
+      '\nFactores de alto riesgo: ' + (c.rf.length ? c.rf.join(', ') : 'ninguno') +
+      '\nTratamiento de elección: ' + vTto(c).v;
+  }
+
+  // ---------------------------------------------------------------
+  // Eventos
+  // ---------------------------------------------------------------
+  function set(k, v) {
+    S[k] = v;
+    ui.copied = false;
+    sync();
+    render();
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-k]');
+    if (b) {
+      var k = b.getAttribute('data-k'), v = b.getAttribute('data-v');
+      if (k === 'guia') { guia = v; render(); return; }
+      if (v === 'toggle') set(k, !S[k]);
+      else set(k, v);
+      return;
+    }
+    var ch = e.target.closest('[data-num]');
+    if (ch) {
+      var nk = ch.getAttribute('data-num');
+      document.getElementById('i-' + nk).value = ch.getAttribute('data-v');
+      set(nk, ch.getAttribute('data-v'));
+    }
+  });
+
+  NUMS.forEach(function (k) {
+    var el = document.getElementById('i-' + k);
+    el.addEventListener('input', function () { set(k, el.value); });
+  });
+
+  function fillInputs() {
+    NUMS.forEach(function (k) { document.getElementById('i-' + k).value = S[k]; });
+  }
+
+  document.getElementById('b-reset').addEventListener('click', function () {
+    S = assign({}, DEFAULTS);
+    ui = { shareUrl: '', copied: false };
+    fillInputs();
+    sync();
+    render();
+  });
+
+  document.getElementById('b-print').addEventListener('click', function () { try { window.print(); } catch (e) {} });
+
+  document.getElementById('b-share').addEventListener('click', function () {
+    var code = toParams(S);
+    var web = location.protocol === 'http:' || location.protocol === 'https:';
+    var url = web ? location.origin + location.pathname + location.search + '#' + code : code;
+    var ok = false;
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = url;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, url.length);
+      ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+    } catch (err) { ok = false; }
+    ui.shareUrl = url;
+    ui.copied = ok;
+    render();
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function () { ui.copied = true; render(); }, function () {});
+    }
+    if (web && navigator.share) {
+      try {
+        var p = navigator.share({ title: 'Manejo del carcinoma basocelular', text: 'Caso de carcinoma basocelular', url: url });
+        if (p && p.catch) p.catch(function () {});
+      } catch (err) {}
+    }
+    setTimeout(function () { var el = document.getElementById('share-url'); el.focus(); el.select(); }, 30);
+  });
+
+  document.getElementById('b-close').addEventListener('click', function () {
+    ui.shareUrl = ''; ui.copied = false;
+    document.getElementById('load-err').textContent = '';
+    render();
+  });
+
+  document.getElementById('load-code').addEventListener('input', function () { document.getElementById('load-err').textContent = ''; });
+
+  document.getElementById('b-load').addEventListener('click', function () {
+    var raw = document.getElementById('load-code').value.trim();
+    if (!raw) return;
+    var parsed = fromParams(raw.indexOf('#') >= 0 ? raw.slice(raw.indexOf('#')) : raw);
+    if (!Object.keys(parsed).length) { document.getElementById('load-err').textContent = 'Código no reconocido.'; return; }
+    S = assign({}, DEFAULTS, parsed);
+    ui = { shareUrl: '', copied: false };
+    document.getElementById('load-code').value = '';
+    fillInputs();
+    sync();
+    render();
+  });
+
+  window.addEventListener('hashchange', function () {
+    var p = fromParams(location.hash);
+    if (Object.keys(p).length && toParams(assign({}, DEFAULTS, p)) !== toParams(S)) {
+      S = assign({}, DEFAULTS, p);
+      fillInputs();
+      render();
+    }
+  });
+
+  critButtons();
+  fillInputs();
+  render();
+})();
+</script>
+</body>
+</html>
