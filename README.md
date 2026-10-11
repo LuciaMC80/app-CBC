@@ -3,6 +3,7 @@
 Herramienta web de apoyo a la decisión clínica para clasificar el carcinoma
 basocelular (CBC) y obtener las recomendaciones de manejo de las guías
 **EADO 2023** (European Association of Dermato‑Oncology, con EDF, ESTRO, UEMS y EADV),
+**NCCN 1.2027** (National Comprehensive Cancer Network, agosto de 2026),
 **BAD 2021** (British Association of Dermatologists), **AEDV 2019** (Academia Española
 de Dermatología y Venereología) y la **guía de práctica clínica del CBC en el síndrome
 de Gorlin** (*J Am Acad Dermatol* 2026), con la evidencia posterior más relevante.
@@ -18,7 +19,9 @@ bordes, dificultad técnica, multiplicidad, subtipo histológico, invasión peri
 invasión ósea, márgenes y extensión) la aplicación devuelve:
 
 - **Estadio EADO** (I, IIA, IIB, IIIA, IIIB, IIIC, IV): fácil o difícil de tratar.
-- **Riesgo de recidiva bajo o alto** según BAD 2021 (NCCN adaptada a UICC‑8 y RCPath),
+- **Riesgo de recidiva bajo o alto** según BAD 2021 y según NCCN 1.2027, con aviso cuando
+  discrepan (la NCCN considera de alto riesgo cabeza, cuello, manos, pies, pretibial y
+  anogenital de cualquier tamaño, y tronco y extremidades desde 2 cm),
   con los factores de alto riesgo presentes, y **pT de UICC‑8**.
 - **Veredictos** de tratamiento de elección, margen quirúrgico, actitud tras la exéresis
   (márgenes libres, cercanos o afectos), radioterapia, pruebas de imagen, tratamiento
@@ -71,7 +74,11 @@ certificado y no debe usarse como única base de una decisión asistencial.
 - Grob JJ, et al. Position statement on classification of basal cell carcinomas, partes 1 y 2.
   *J Eur Acad Dermatol Venereol* 2021;35:1949–56 y 2149–53.
 - UICC TNM Classification of Malignant Tumours, 8.ª ed.
-- Las posiciones de NCCN se recogen tal como las citan BAD 2021, EADO 2023 y AEDV 2019.
+- NCCN Clinical Practice Guidelines in Oncology: Basal Cell Skin Cancer, versión 1.2027
+  (21 de agosto de 2026). Se recogen sus recomendaciones de práctica clínica (estratificación,
+  tratamiento, márgenes, esquemas de radioterapia, preferencias de tratamiento sistémico,
+  anatomía patológica y seguimiento), redactadas de nuevo y sin reproducir sus algoritmos ni
+  figuras. Consulte el documento original en nccn.org.
 - Evidencia posterior: Final analysis of phase II results with cemiplimab in metastatic
   basal cell carcinoma after hedgehog pathway inhibitors. *Ann Oncol* 2024;35:221–8.
   Ensayo NCT05929664 (cemiplimab neoadyuvante), ASCO 2026. Ensayo 2023‑507528‑21‑00 (patidegib).

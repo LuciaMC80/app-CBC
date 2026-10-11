@@ -2,7 +2,7 @@
    La interfaz y la lógica viajan en index.html; se cachean además las
    fuentes y los iconos para que funcione sin conexión. */
 
-const VERSION = 'cbc-v1';
+const VERSION = 'cbc-v2';
 const ASSETS = [
   './',
   './index.html',
