@@ -139,6 +139,20 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 .vlist { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
 .vlist span { font: 500 11px/1.2 'IBM Plex Sans', sans-serif; padding: 4px 8px; border-radius: 3px; background: oklch(0.95 0.025 35); color: oklch(0.44 0.11 32); border: 1px solid oklch(0.87 0.05 35); }
 
+.sum { border-left: 4px solid var(--acc); }
+.sum-head { font: 600 15px/1.4 'IBM Plex Sans', sans-serif; color: var(--ink); margin-bottom: 14px; text-wrap: pretty; }
+.sum-rows { display: grid; grid-template-columns: max-content 1fr; gap: 9px 16px; align-items: baseline; }
+.sum-k { font: 600 10.5px/1.3 'JetBrains Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--label); }
+.sum-v { font: 400 14px/1.45 'IBM Plex Sans', sans-serif; color: var(--ink); text-wrap: pretty; }
+.sum-v.warn { color: var(--warn); font-weight: 600; }
+.sum-v.alert { color: var(--alert); font-weight: 600; }
+.sum-v.muted { color: var(--muted); }
+.sum-note { font: 400 12px/1.5 'IBM Plex Sans', sans-serif; color: var(--label); margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+@media (max-width: 720px) {
+  .sum-rows { grid-template-columns: 1fr; gap: 2px; }
+  .sum-v { margin-bottom: 8px; }
+}
+
 .sec-t { font: 600 11px/1.3 'JetBrains Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--acc); margin-bottom: 15px; }
 .items { display: flex; flex-direction: column; gap: 14px; }
 .item { display: flex; gap: 11px; align-items: flex-start; }
@@ -1040,6 +1054,36 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   // ---------------------------------------------------------------
   // Render
   // ---------------------------------------------------------------
+  // ---------------------------------------------------------------
+  // Resumen escueto de la actitud a seguir
+  // ---------------------------------------------------------------
+  function sumTone(c) { return c === 'alert' ? 'alert' : c === 'maybe' ? 'warn' : c === 'ok' ? '' : 'muted'; }
+  function sumFirst(d) { var s = String(d || '').split('. ')[0].replace(/\.$/, ''); return s ? s + '.' : ''; }
+  function sumRow(k, v) { return [k, (v.v && v.v !== '—' ? v.v + '. ' : '') + sumFirst(v.d), sumTone(v.c)]; }
+  function sumCard(head, rows) {
+    var t = '<div class="card sum"><div class="sec-t">Resumen · actitud a seguir</div>';
+    if (!rows) return t + '<div class="vdet">Introduzca al menos el diámetro clínico máximo para generar el resumen.</div></div>';
+    return t + '<div class="sum-head">' + esc(head) + '</div><div class="sum-rows">' +
+      rows.map(function (r) { return '<div class="sum-k">' + esc(r[0]) + '</div><div class="sum-v' + (r[2] ? ' ' + r[2] : '') + '">' + esc(r[1]) + '</div>'; }).join('') +
+      '</div><div class="sum-note">Síntesis de las recomendaciones detalladas más abajo. No sustituye la valoración del comité multidisciplinar.</div></div>';
+  }
+  function vResumen(c) {
+    if (c.pending && c.nPending) return null;
+    var rows = [], tto = vTto(c), act = vActitud(c);
+    var com = isAdv() ? 'carcinoma basocelular avanzado' : isGor() ? 'síndrome de Gorlin' :
+      (tto.v === 'Comité' || (act && act.v === 'Comité')) ? 'alto riesgo con decisión compleja' : '';
+    rows.push(['Comité', com ? 'Presentar en comité multidisciplinar (' + com + ').' : 'No precisa.', com ? 'warn' : '']);
+    rows.push(sumRow('Tratamiento', tto));
+    if (act) rows.push(sumRow('Tras la exéresis', act));
+    else if (surg() && !isAdv()) rows.push(sumRow('Margen', vMargin(c)));
+    rows.push(sumRow('Radioterapia', vRT(c)));
+    rows.push(sumRow('Imagen', vImaging(c)));
+    rows.push(sumRow('Sistémico', vSys(c)));
+    rows.push(sumRow('Seguimiento', vFU(c)));
+    rows.push(['Prevención', 'Fotoprotección y autoexploración cutánea.', 'muted']);
+    return rows;
+  }
+
   function esc(s) { return String(s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); }
 
   function verdictHTML(lab, v, extra) {
@@ -1111,6 +1155,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
       '<div><div class="sg-lab">pT<div class="sg-full">UICC‑8</div></div><div class="sg-val">' + esc(c.T ? c.T + (isMet() ? ' M1' : '') : '—') + '</div></div>' +
       '<div><div class="sg-lab">Área<div class="sg-full">BAD 2021</div></div><div class="sg-val">' + esc(S.area) + '</div></div>' +
       '</div><div class="stage-note">' + notes.map(function (n) { return '<p>' + esc(n) + '</p>'; }).join('') + '</div></div>';
+    html += sumCard(head + (c.T ? ' · ' + c.T + (isMet() ? ' M1' : '') : '') + (S.area ? ' · área ' + S.area : ''), vResumen(c));
 
     function chips(a) { return '<div class="vlist">' + a.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>'; }
     var flist = (c.rf.length ? chips(c.rf) : '') + (c.nf.length && !isAdv() ? '<div class="vdet" style="margin-top:8px">Criterios NCCN 1.2027:</div>' + chips(c.nf) : '');
